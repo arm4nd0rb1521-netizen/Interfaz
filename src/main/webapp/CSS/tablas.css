@@ -1,0 +1,95 @@
+/* TITULO */
+
+h1{
+    text-align:center;
+    margin-top:40px;
+    color:white;
+    font-size:55px;
+}
+
+hr{
+    width:250px;
+    margin:15px auto 40px auto;
+
+    border:none;
+    height:4px;
+
+    background:white;
+    border-radius:20px;
+}
+
+/* TABLA */
+
+table{
+
+    width:70%;
+
+    margin:auto;
+
+    border-collapse:collapse;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* ENCABEZADOS */
+
+thead{
+
+    background:rgba(255,255,255,0.25);
+}
+
+th{
+
+    padding:20px;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+/* CELDAS */
+
+td{
+
+    padding:18px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:18px;
+}
+
+/* LINEAS */
+
+tr{
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+/* EFECTO HOVER */
+
+tbody tr:hover{
+
+    background:rgba(255,255,255,0.1);
+
+    transition:0.3s;
+
+    transform:scale(1.01);
+}
+
