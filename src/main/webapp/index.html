@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>MyOwnShop/Login</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>My Own Shop</h1>
-        <hr>
+<head>
+    <title>MyOwnShop/Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="CSS/index.css"/>
+</head>
+
+<body>
+
+    <div class="principal">
+
+        <h1 class="titulo">My Own Shop</h1>
         
-        <h3>Inicie sesión</h3>
-        <br><br><br><br>
+        <p class="subtitulo">Bienvenido, inicie sesión</p>
         
-        <form>
-            <label id="usuario">Usuario</label><input type="text" name="user">
-            <br><br>
-            
-            <label id="contrasenia">Contraseña</label><input type="text" name="password">
-            <br><br>
-            
-            <input type="button" name="valida" value="Validar">
+        <form class="login">
+
+            <div class="campo">
+                <label>Usuario</label>
+                <input type="text" name="user">
+            </div>
+
+            <div class="campo">
+                <label>Contraseña</label>
+                <input type="password" name="password">
+            </div>
+
+            <input class="boton" type="button" value="Validar">
+
         </form>
-    </body>
+
+    </div>
+
+</body>
 </html>
