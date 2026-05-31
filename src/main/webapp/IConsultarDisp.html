@@ -4,8 +4,27 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="miHeader.js"></script>   
     </head>
     <body>
-        <div>TODO write content</div>
+    <crear-header></crear-header>
+        <h1>Consultar disponibilidad</h1>
+        <hr>
+        <br><br>
+        <form>
+            <label>Ingrese código</label><input type="text" name="codigo">
+            <br><br>
+
+            <input type="button" name="consultar" value="Consultar">
+            <br><br>
+
+            <div class="izquierda">
+                <label>Producto</label><input type="text" name="prod" readonly>
+            </div>
+            
+            <div class="derecha">
+                <label>Stock</label><input type="text" name="stock" readonly>
+            </div>
+        </form>
     </body>
 </html>

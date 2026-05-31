@@ -4,8 +4,31 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="miHeader.js"></script>   
     </head>
     <body>
-        <div>TODO write content</div>
+        <crear-header></crear-header>
+        <h1>Consultar disponibilidad</h1>
+        <hr>
+        <br><br>
+        
+        <form>
+            <label>Ingrese código</label> <input type="text" name="codigo">
+            <label>Ingrese cantidad</label> <input type="text" name="cantidad">
+            <br><br><br>
+            
+            <label>Producto</label> <input type="text" name="prod" readonly>
+            <br><br>
+            
+            <label>Precio</label> <input type="text" name="prec" readonly>
+            <br><br>
+            
+            <input type="button" name="agrega" value="Agregar">
+            <br><br>
+            
+            <div class="total">
+                <label>Total</label> <input type="text" name="total" readonly>
+            </div>
+        </form>
     </body>
 </html>
