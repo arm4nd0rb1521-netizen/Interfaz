@@ -4,6 +4,8 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/gen_ventas.css"/>
+        <link rel="stylesheet" href="CSS/Agregar_Prod_venta.css"/>
     <script src="miHeader.js"></script>   
     </head>
     <body>
@@ -13,22 +15,42 @@
         <br><br>
         
         <form>
-            <label>Ingrese código</label> <input type="text" name="codigo">
-            <label>Ingrese cantidad</label> <input type="text" name="cantidad">
-            <br><br><br>
-            
-            <label>Producto</label> <input type="text" name="prod" readonly>
-            <br><br>
-            
-            <label>Precio</label> <input type="text" name="prec" readonly>
-            <br><br>
-            
-            <input type="button" name="agrega" value="Agregar">
-            <br><br>
-            
-            <div class="total">
-                <label>Total</label> <input type="text" name="total" readonly>
-            </div>
-        </form>
+
+    <div class="datos-superiores">
+
+        <div class="campo">
+            <label>Ingrese código</label>
+            <input type="text" name="codigo">
+        </div>
+
+        <div class="campo">
+            <label>Ingrese cantidad</label>
+            <input type="text" name="cantidad">
+        </div>
+
+    </div>
+
+    <div class="datos-inferiores">
+
+        <div class="campo">
+            <label>Producto</label>
+            <input type="text" name="prod" readonly>
+        </div>
+
+        <div class="campo">
+            <label>Precio</label>
+            <input type="text" name="prec" readonly>
+        </div>
+
+        <input class="btn-agregar" type="button" name="agrega" value="Agregar">
+
+    </div>
+
+    <div class="total">
+        <label>Total</label>
+        <input type="text" name="total" readonly>
+    </div>
+
+</form>
     </body>
 </html>

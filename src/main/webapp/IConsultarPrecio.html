@@ -4,27 +4,39 @@
         <title>My Own Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/gen_ventas.css"/>
+        <link rel="stylesheet" href="CSS/Consultar_precio.css"/>
        <script src="miHeader.js"></script>   
     </head>
     <body>
+        <crear-header></crear-header>
         <h1>Consultar precio</h1>
         <hr>
-        <br><br>
+    
         
         <form>
-            <label>Ingrese código</label> <input type="text" name="codigo">
-            <br><br>
-            
-            <input type="button" name="consultar" value="Consultar">
-            <br><br>
-            
-            <div class="izquierda">
-                <label>Producto</label> <input type="text" name="prod" readonly>
-            </div>
-            
-            <div class="derecha">
-                <label>Precio</label> <input type="text" name="precio" readonly>
-            </div>
-        </form>
+
+    <div class="arriba">
+        <label>Ingrese código</label>
+        <input type="text" name="codigo">
+
+        <input type="button" name="consultar" value="Consultar">
+    </div>
+
+    <div class="abajo">
+
+        <div class="campo">
+            <label>Producto</label>
+            <input type="text" name="prod" readonly>
+        </div>
+
+        <div class="campo">
+            <label>Precio</label>
+            <input type="text" name="precio" readonly>
+        </div>
+
+    </div>
+
+</form>
     </body>
 </html>
