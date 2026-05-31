@@ -1,0 +1,16 @@
+.secundario{
+    display:flex;
+    width:100%;
+}
+
+.derecha{
+    margin-left:auto;
+}
+
+.izquierda input[type="button"] {
+    background: #ffd60a;
+}
+
+.derecha input[type="button"] {
+    background: springgreen;
+}

@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/gen_administracion.css"/>
+        <link rel="stylesheet" href="CSS/gestionar_usuario.css"/>
+        <link rel="stylesheet" href="CSS/gestionar_roles.css"/>
         <script src="miHeader.js"></script>
     </head>
     <body>
@@ -14,7 +16,7 @@
         <hr>
         <br><br> 
         
-        <div class="datitos">
+        <div class="datos">
             <label>Ingrese ID del usuario: </label>
             <input type="text" name="id_suspender">
             <br><br><br>
@@ -29,14 +31,16 @@
         </div>
         <br><br><br>
         
-        <div class="izquierda">
-            <input type="button" value="Desactivar permisos" name="desactivar_perm" />
+        <div class="secundario">
+            <div class="izquierda">
+                <input type="button" value="Desactivar permisos" name="desactivar_perm" />
+            </div>
+
+            <div class="derecha">
+                <input type="button" value="Cambiar rol" name="cambiar_rol" />
+           </div>
         </div>
-        
-        <div class="derecha">
-            <input type="button" value="Cambiar rol" name="cambiar_rol" />
-            <br>
-            <input type="button" value="Guardar cambios" name="guardar"/>
-        </div>
+            
+                <input type="button" value="Guardar cambios" name="guardar"/>
     </body>
 </html>
