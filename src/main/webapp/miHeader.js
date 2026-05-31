@@ -4,7 +4,7 @@ class CrearHeader extends HTMLElement {
             <header>
                 <div class="principal">
                     <nav class="navegacion">
-                        <a href="index.html">Home</a>
+                        <a href="IHome.html">Home</a>
                         <a href="IVentas.html">Ventas</a>
                         <a href="ILog.html">Logistica</a>
                         <a href="IAdmin.html">Administracion</a>
