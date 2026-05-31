@@ -1,0 +1,33 @@
+
+label{
+    align-content: center;
+
+    margin-bottom:8px;
+
+    color:white;
+    font-weight:600;
+}
+
+input{
+
+    width:40%;
+    padding:15px;
+
+    border:none;
+    border-radius:12px;
+
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+input:focus{
+
+    outline:none;
+
+    transform:scale(1.02);
+
+    
+}
+
