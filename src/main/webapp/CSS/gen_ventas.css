@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+body{
+    min-height:100vh;
+
+    background: linear-gradient(
+    135deg,
+    #ff6b00,
+    #ffb700,
+    #ffd60a
+);
+
+    color:white;
+}
+header{
+    width:100%;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+.principal{
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 40px;
+}
+
+.nombre h3{
+    font-size:28px;
+    color:white;
+}
+
+.navegacion{
+    display:flex;
+    gap:25px;
+}
+
+.navegacion a{
+    text-decoration:none;
+    color:white;
+
+    font-size:17px;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.navegacion a:hover{
+    color:#93c5fd;
+}
+h1{
+    text-align:center;
+
+    margin-top:60px;
+
+    font-size:60px;
+
+    text-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+hr{
+    width:250px;
+
+    margin:15px auto 50px auto;
+
+    border:none;
+    height:4px;
+
+    background:white;
+
+    border-radius:20px;
+}
+/* BOTONES */
+
+input[type="button"]{
+
+    display:block;
+
+    width:350px;
+    height:90px;
+
+    margin:25px auto;
+
+    border:none;
+
+    border-radius:20px;
+
+    font-size:24px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+}
+
+input[type="button"]:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    background:rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.35);
+}
