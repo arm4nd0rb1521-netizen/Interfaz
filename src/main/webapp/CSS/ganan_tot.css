@@ -1,11 +1,11 @@
 .ganancias{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    gap:15px;
+    gap:10px;
 }
-    
-ganancias label{
+
+.ganancias label{
     color:white;
     font-weight:600;
     font-size:22px;
@@ -22,14 +22,5 @@ ganancias label{
     text-align:center;
 
     box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-.ganancias inputt:focus{
-
-    outline:none;
-
-    transform:scale(1.02);
-
-    
 }
 
