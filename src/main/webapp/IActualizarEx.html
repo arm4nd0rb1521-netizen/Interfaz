@@ -4,6 +4,11 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/gen_logistica.css"/>
+        <link rel="stylesheet" href="CSS/Consultar_precio.css"/>
+        <link rel="stylesheet" href="CSS/Actualizar_exi.css"/>
+        
+        
         <script src="miHeader.js"></script>
     </head>
     <body>
@@ -12,16 +17,26 @@
         <h1>Actualizar existencias</h1>
         <hr>
         <br><br>
-        
+        <div class="arriba">
         <label>Ingrese el código del producto a actualizar</label> <input type="text" name="codigo_actualiza"> 
         <input type="button" value="Buscar" name="buscar" />
-        <br><br><br><br>
-        
         <label>Cantidad</label>
+        </div>
         <br>
-        
-        <label>Disponibles</label> <input type="text" name="disponibles">
-        <label>Nueva cantidad</label> <input type="text" name="nueva_cantidad">
-        <input type="button" value="Actualizar" name="actualiza" />
+      <div class="abajo">
+
+    <div class="campo">
+
+        <label>Disponibles</label>
+        <input type="text" name="disponibles">
+
+        <label>Nueva cantidad</label>
+        <input type="text" name="nueva_cantidad">
+
+        <input type="button" value="Actualizar" name="actualiza">
+
+    </div>
+
+</div>
     </body>
 </html>
