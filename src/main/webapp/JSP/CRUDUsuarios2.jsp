@@ -11,10 +11,17 @@
     </head>
     <body>
         <%
+            out.print("Entré al JSP<br>");
+            out.print(request.getParameter("user") + "<br>");
+            out.print(request.getParameter("ape") + "<br>");
+            out.print(request.getParameter("password_crear") + "<br>");
+            out.print(request.getParameter("tipo_usuario") + "<br>");
+            
             UsuarioDAO udao = new UsuarioDAO();
             List <Usuario> usuarios = new ArrayList<>();
             
             if(request.getParameter("registrar") != null) {
+                out.print("Entre a crear<br>");
                 Usuario u = new Usuario();
                 u.setNombre(request.getParameter("user"));
                 u.setApellido(request.getParameter("ape"));
@@ -121,16 +128,61 @@
                     out.print("<script>alert('No hay usuarios registrados');</script>");
 
                 }
-                
-                if(request.getParameter("actualizar") != null) {
-                    int id = Integer.parseInt("idecin");
-                    String nombre = request.getParameter("nombrecin");
-                    String nombre = request.getParameter("nombrecin");
-                    String nombre = request.getParameter("ape");
-                    String nombre = request.getParameter("nombrecin");
+            }
+
+            if(request.getParameter("valida") != null) {
+
+                Usuario u = new Usuario();
+
+                u.setIdUsuario(
+                    Integer.parseInt(
+                        request.getParameter("idecin")
+                    )
+                );
+
+                u.setNombre(
+                    request.getParameter("nombrecin")
+                );
+
+                u.setApellido(
+                    request.getParameter("apellidocin")
+                );
+
+                u.setContraseña(
+                    request.getParameter("contrasenia")
+                );
+
+                String rolecin =
+                    request.getParameter("rolecin");
+
+                int rol = 0;
+
+                if(rolecin.equals("Vendedor"))
+                    rol = 1;
+                else if(rolecin.equals("Encargado_almacen"))
+                    rol = 2;
+                else if(rolecin.equals("Gerente"))
+                    rol = 3;
+                else if(rolecin.equals("Administrador"))
+                    rol = 4;
+
+                u.setIdRol(rol);
+
+                if(udao.actualizar(u)) {
+
+                    out.print(
+                        "<script>alert('Usuario actualizado');</script>"
+                    );
+
+                } else {
+
+                    out.print(
+                        "<script>alert('Error al actualizar');</script>"
+                    );
                 }
             }
-        
         %>
+        <a href="../HTMLs/IAdmin_GestionUsuarios.html">Regresar</a>
+
     </body>
 </html>
