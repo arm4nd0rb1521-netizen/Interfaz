@@ -1,4 +1,7 @@
 <%@page import="java.sql.*" %>
+<%@page import="DAO.UsuarioDAO" %>
+<%@page import="Modelo.Usuario" %>
+<%@page import="conexion.Conexion" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -177,7 +180,7 @@
                     out.print("</table>");
                     out.print("<br><br><br><br>");
                     
-                    out.print("<form action='actualizar.jsp' method='post' name='actualiza'>");
+                    out.print("<form action='CRUDUsuarios2.jsp' method='post' name='actualiza'>");
                     
                     out.print("ID: <input type='text' name='idecin' value='"+id+"' readonly><br><br>");
                     out.print("Nombre: <input type='text' name='nombrecin' value='"+nombre+"'><br><br>");
