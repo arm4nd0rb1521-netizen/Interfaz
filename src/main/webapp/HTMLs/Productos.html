@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>My Own Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
-        <link rel="stylesheet" href="../CSS/seguridad.css"/>
         <link rel="stylesheet" href="../CSS/footerr.css"/>
         <link rel="stylesheet" href="../CSS/header.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -15,19 +14,22 @@
     <body>
         <crear-header></crear-header>
         
-        <h1>Seguridad del sistema</h1>
+        <h1>Productos</h1>
         <hr>
-        <br><br> 
+        <br><br>
         
-        <div class="opc">
-            <input type="button" value="Inicio de sesión" name="inicio_sesion" />
+        <div class="opciones_admin">
+            <a href="Usuarios.html" style="text-decoration: none;">
+                <input type="button" name="gestion_usuarios" value="Gestionar usuarios">
+            </a>
             <br><br>
-            
-            <input type="button" value="Verificar permisos" name="verificar_permisos" />
+
+            <a href="IAdmin_HistorialSistema.html" style="text-decoration: none;">
+                <input type="button" name="historial_sistema" value="Historial del sistema">
+            </a>    
             <br><br>
-            
-            <input type="button" value="Cerrar sesión" name="cerrar_sesion" />
-        </div>
-        <crear-footer></crear-footer>
+
+        </div> 
+         <crear-footer></crear-footer>
     </body>
 </html>

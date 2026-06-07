@@ -51,7 +51,7 @@ class CrearFooter extends HTMLElement {
 
                     <div class="redes">
 
-                        <a href="https://www.instagram.com/miakhalifa/?hl=es">
+                        <a href="https://www.instagram.com/ipn_oficial/?hl=e">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
 

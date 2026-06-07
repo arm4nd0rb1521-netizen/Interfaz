@@ -9,15 +9,15 @@ class CrearHeader extends HTMLElement {
                     <nav class="navegacion">
                         <a href="IHome.html">Home</a>
                         <a href="IVentas.html">Ventas</a>
-                        <a href="IVentas.html">Reportes</a>
+                        <a href="Reportes.html">Reportes</a>
                         <a href="ILog.html">Proveedores</a>
                         <a href="ILog.html">Compras</a>
                         <a href="IAdmin.html">Movimientos de stock</a>
                         <a href="IAdmin.html">Detalles de compra</a>
                         <a href="IAdmin.html">Detalles de venta</a>
-                        <a href="IAdmin.html">Usuarios</a>
+                        <a href="Usuarios.html">Usuarios</a>
                         <a href="IAdmin.html">Roles y permisos</a>
-                        <a href="IAdmin.html">Productos</a>
+                        <a href="Productos.html">Productos</a>
                         <a href="IAdmin.html">Categorias de productos</a>
 
                     </nav>

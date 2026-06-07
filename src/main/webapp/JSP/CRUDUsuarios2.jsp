@@ -11,17 +11,10 @@
     </head>
     <body>
         <%
-            out.print("Entré al JSP<br>");
-            out.print(request.getParameter("user") + "<br>");
-            out.print(request.getParameter("ape") + "<br>");
-            out.print(request.getParameter("password_crear") + "<br>");
-            out.print(request.getParameter("tipo_usuario") + "<br>");
-            
             UsuarioDAO udao = new UsuarioDAO();
             List <Usuario> usuarios = new ArrayList<>();
             
             if(request.getParameter("registrar") != null) {
-                out.print("Entre a crear<br>");
                 Usuario u = new Usuario();
                 u.setNombre(request.getParameter("user"));
                 u.setApellido(request.getParameter("ape"));
@@ -182,7 +175,7 @@
                 }
             }
         %>
-        <a href="../HTMLs/IAdmin_GestionUsuarios.html">Regresar</a>
+        <a href="../HTMLs/Usuarios.html">Regresar</a>
 
     </body>
 </html>

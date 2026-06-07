@@ -91,6 +91,6 @@
                 
             }
         %>
-        <a href="../HTMLs/IAdmin_GestionUsuarios.html">Regresar</a>
+        <a href="../HTMLs/Usuarios.html">Regresar</a>
     </body>
 </html>
