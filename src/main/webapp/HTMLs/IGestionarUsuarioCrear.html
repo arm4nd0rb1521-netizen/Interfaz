@@ -15,30 +15,31 @@
         <hr>
         <br><br> 
         
-        <div class="datos">
-            <label>Ingrese un nombre de usuario </label>
-            <input type="text" name="user">
-            <br><br>
+        <form action="../JSP/CRUDusuarios.jsp" method="post" name="crear">
+            <div class="datos">
+                <label>Ingrese un nombre de usuario </label>
+                <input type="text" name="user">
+                <br><br>
 
-            <label>Ingrese el apellido del usuario </label>
-            <input type="text" name="ape">
-            <br><br>
+                <label>Ingrese el apellido del usuario </label>
+                <input type="text" name="ape">
+                <br><br>
 
-            <label>Cree una contraseña</label>
-            <input type="text" name="password_crear">
-            <br><br>
-            
-            <select name="tipo_usuario">
-                <option value="Nada">Seleccione alguna</option>
-                <option value="Vendedor">Vendedor</option>
-                <option value="Encargado_almacen">Encargado de almacen</option>
-                <option value="Gerente">Gerente</option>
-                <option value="Administrador">Administrador</option>
-            </select>
-            <br><br>
-        </div>
+                <label>Cree una contraseña</label>
+                <input type="text" name="password_crear">
+                <br><br>
+
+                <select name="tipo_usuario">
+                    <option value="Nada">Seleccione alguna</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Encargado_almacen">Encargado de almacen</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                <br><br>
+            </div>
         
-        <input type="button" value="Crear usuario" name="crear">
-        
+            <input type="submit" value="Crear usuario" name="registrar">
+        </form>
     </body>
 </html>
