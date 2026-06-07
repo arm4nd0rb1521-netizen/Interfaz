@@ -12,7 +12,7 @@
             
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/myownshop?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/myownshop?autoReconnect=true&useSSL=false", "root", "ces160408");
                 st = con.createStatement();
                 
             } catch(SQLException e) {
