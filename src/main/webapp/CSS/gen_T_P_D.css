@@ -1,0 +1,32 @@
+.contenido{
+
+    width:80%;
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    padding:30px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    color:white;
+
+    line-height:1.8;
+
+    text-align:justify;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.contenido p{
+
+    margin-bottom:20px;
+
+    font-size:18px;
+}
+

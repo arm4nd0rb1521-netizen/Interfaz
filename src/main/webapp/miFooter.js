@@ -1,31 +1,86 @@
 class CrearFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <footer>
-                <div class="contenido">
+     <footer>
 
-                    <div class="columnas">
-                        <img src="../mayadev.png" width="100" height="100">
-                    </div>
+            <div class="footer-contenedor">
 
-                    <div class="columnas">
-                        <h3>Navegación</h3>
-                        <a href="IHome.html">Inicio</a>
-                    </div>
+                <div class="footer-columna">
 
-                    <div class="columnas">
-                        <h3>Información Legal</h3>
-                        <p>Términos y condiciones</p>
-                    </div>
+                    <img src="../mayadev.png"
+                         alt="Logo My Own Shop"
+                         class="logo-footer">
 
-                    <div class="columnas">
-                        <h3>Redes</h3>
-                        <p>Facebook</p>
-                        <p>Instagram</p>
+                </div>
+
+                <div class="footer-columna">
+
+                    <h3>Navegación</h3>
+
+                    <a href="https://www.ipn.mx/" target="_blank">
+                        IPN
+                    </a>
+
+                </div>
+
+                <div class="footer-columna">
+
+                    <h3>Información Legal</h3>
+
+                    <a href="terminos.html">
+                        Términos y Condiciones
+                    </a>
+
+                    <br><br>
+
+                    <a href="privacidad.html">
+                        Aviso de Privacidad
+                    </a>
+
+                    <br><br>
+
+                    <a href="derechos.html">
+                        Derechos de Autor
+                    </a>
+
+                </div>
+
+                <div class="footer-columna">
+
+                    <h3>Redes Sociales</h3>
+
+                    <div class="redes">
+
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+
                     </div>
 
                 </div>
-            </footer>
+
+            </div>
+
+            <div class="copyright">
+
+                © 2026 My Own Shop - MayaDev.
+                Todos los derechos reservados.
+
+            </div>
+
+        </footer>
         `;
     }
 }
