@@ -25,7 +25,7 @@ public class VentaDAO {
 
             ps = con.prepareStatement(sql);
 
-            ps.setTimestamp(1, v.getFecha());
+            ps.setString(1, v.getFecha());
             ps.setInt(2, v.getIdUsuario());
 
             return ps.executeUpdate() > 0;
@@ -102,7 +102,7 @@ public class VentaDAO {
                 );
 
                 v.setFecha(
-                    rs.getTimestamp("fecha")
+                    rs.getString("fecha")
                 );
 
                 v.setIdUsuario(
@@ -151,7 +151,7 @@ public class VentaDAO {
                 );
 
                 v.setFecha(
-                    rs.getTimestamp("fecha")
+                    rs.getString("fecha")
                 );
 
                 v.setIdUsuario(
@@ -192,7 +192,7 @@ public class VentaDAO {
 
             ps = con.prepareStatement(sql);
 
-            ps.setTimestamp(1, v.getFecha());
+            ps.setString(1, v.getFecha());
             ps.setInt(2, v.getIdUsuario());
             ps.setInt(3, v.getIdVenta());
 

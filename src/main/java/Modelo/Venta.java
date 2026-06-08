@@ -4,13 +4,13 @@ import java.sql.Timestamp;
 
 public class Venta {
     private int idVenta;
-    private Timestamp fecha;
+    private String fecha;
     private int idUsuario;
 
     public Venta() {
     }
 
-    public Venta(int idVenta, Timestamp fecha, int idUsuario) {
+    public Venta(int idVenta, String fecha, int idUsuario) {
         this.idVenta = idVenta;
         this.fecha = fecha;
         this.idUsuario = idUsuario;
@@ -24,11 +24,11 @@ public class Venta {
         this.idVenta = idVenta;
     }
 
-    public Timestamp getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
