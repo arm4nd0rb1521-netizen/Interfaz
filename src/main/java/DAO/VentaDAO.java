@@ -1,6 +1,6 @@
 package DAO;
 
-import Modelo.Categoria;
+import Modelo.Venta;
 import conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CategoriaDAO {
+public class VentaDAO {
 
-    public boolean insertar(Categoria c) {
+    public boolean insertar(Venta v) {
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -20,13 +20,13 @@ public class CategoriaDAO {
             con = Conexion.getConexion();
 
             String sql =
-                "INSERT INTO categoria(nombre, descripcion) " +
+                "INSERT INTO venta(fecha, id_usuario) " +
                 "VALUES(?, ?)";
 
             ps = con.prepareStatement(sql);
 
-            ps.setString(1, c.getNombre());
-            ps.setString(2, c.getDescripcion());
+            ps.setTimestamp(1, v.getFecha());
+            ps.setInt(2, v.getIdUsuario());
 
             return ps.executeUpdate() > 0;
 
@@ -52,7 +52,7 @@ public class CategoriaDAO {
             con = Conexion.getConexion();
 
             String sql =
-                "DELETE FROM categoria WHERE id_categoria = ?";
+                "DELETE FROM venta WHERE id_venta = ?";
 
             ps = con.prepareStatement(sql);
 
@@ -72,20 +72,20 @@ public class CategoriaDAO {
         }
     }
 
-    public Categoria buscarUno(int id) {
+    public Venta buscarUno(int id) {
 
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        Categoria c = null;
+        Venta v = null;
 
         try {
 
             con = Conexion.getConexion();
 
             String sql =
-                "SELECT * FROM categoria WHERE id_categoria = ?";
+                "SELECT * FROM venta WHERE id_venta = ?";
 
             ps = con.prepareStatement(sql);
 
@@ -95,18 +95,18 @@ public class CategoriaDAO {
 
             if(rs.next()) {
 
-                c = new Categoria();
+                v = new Venta();
 
-                c.setIdCategoria(
-                    rs.getInt("id_categoria")
+                v.setIdVenta(
+                    rs.getInt("id_venta")
                 );
 
-                c.setNombre(
-                    rs.getString("nombre")
+                v.setFecha(
+                    rs.getTimestamp("fecha")
                 );
 
-                c.setDescripcion(
-                    rs.getString("descripcion")
+                v.setIdUsuario(
+                    rs.getInt("id_usuario")
                 );
             }
 
@@ -121,16 +121,16 @@ public class CategoriaDAO {
             try { if(con != null) con.close(); } catch(Exception e) {}
         }
 
-        return c;
+        return v;
     }
 
-    public ArrayList<Categoria> buscarTodo() {
+    public ArrayList<Venta> buscarTodo() {
 
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
 
-        ArrayList<Categoria> lista = new ArrayList<>();
+        ArrayList<Venta> lista = new ArrayList<>();
 
         try {
 
@@ -139,26 +139,26 @@ public class CategoriaDAO {
             st = con.createStatement();
 
             rs = st.executeQuery(
-                "SELECT * FROM categoria;"
+                "SELECT * FROM venta;"
             );
 
             while(rs.next()) {
 
-                Categoria c = new Categoria();
+                Venta v = new Venta();
 
-                c.setIdCategoria(
-                    rs.getInt("id_categoria")
+                v.setIdVenta(
+                    rs.getInt("id_venta")
                 );
 
-                c.setNombre(
-                    rs.getString("nombre")
+                v.setFecha(
+                    rs.getTimestamp("fecha")
                 );
 
-                c.setDescripcion(
-                    rs.getString("descripcion")
+                v.setIdUsuario(
+                    rs.getInt("id_usuario")
                 );
 
-                lista.add(c);
+                lista.add(v);
             }
 
         } catch(Exception e) {
@@ -175,7 +175,7 @@ public class CategoriaDAO {
         return lista;
     }
 
-    public boolean actualizar(Categoria c) {
+    public boolean actualizar(Venta v) {
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -185,16 +185,16 @@ public class CategoriaDAO {
             con = Conexion.getConexion();
 
             String sql =
-                "UPDATE categoria " +
-                "SET nombre = ?, " +
-                "descripcion = ? " +
-                "WHERE id_categoria = ?";
+                "UPDATE venta " +
+                "SET fecha = ?, " +
+                "id_usuario = ? " +
+                "WHERE id_venta = ?";
 
             ps = con.prepareStatement(sql);
 
-            ps.setString(1, c.getNombre());
-            ps.setString(2, c.getDescripcion());
-            ps.setInt(3, c.getIdCategoria());
+            ps.setTimestamp(1, v.getFecha());
+            ps.setInt(2, v.getIdUsuario());
+            ps.setInt(3, v.getIdVenta());
 
             return ps.executeUpdate() > 0;
 

@@ -1,6 +1,6 @@
 package Modelo;
 
-import com.google.protobuf.Timestamp;
+import java.sql.Timestamp;
 
 public class Venta {
     private int idVenta;
