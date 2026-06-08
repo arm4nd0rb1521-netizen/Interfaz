@@ -7,12 +7,12 @@ class CrearHeader extends HTMLElement {
                 </div>
                 <div class='nave'>
                     <nav class="navegacion">
-                        <a href="IHome.html">Home</a>
-                        <a href="IVentas.html">Ventas</a>
-                        <a href="Reportes.html">Reportes</a>
+                        <a href="../HTMLs/IHome.html">Home</a>
+                        <a href="../HTMLs/IVentas.html">Ventas</a>
+                        <a href="../HTMLs/Reportes.html">Reportes</a>
                         <a href="../HTMLs/Proveedores.html">Proveedores</a>
                         <a href="ILog.html">Compras</a>
-                        <a href="IAdmin.html">Movimientos de stock</a>
+                        <a href="../HTMLs/Historial del sistema.html">Movimientos de stock</a>
                         <a href="IAdmin.html">Detalles de compra</a>
                         <a href="IAdmin.html">Detalles de venta</a>
                         <a href="Usuarios.html">Usuarios</a>
