@@ -23,11 +23,11 @@
                 <input type="button" name="gestion_usuarios" value="Gestionar usuarios">
             </a>
             <br><br>
-
-            <a href="IAdmin_HistorialSistema.html" style="text-decoration: none;">
-                <input type="button" name="historial_sistema" value="Historial del sistema">
-            </a>    
-            <br><br>
+            <form action="../JSP/Historial.jsp" method="post" name="historialcito">
+                   <input type="hidden" name="accion" value="historial">
+                    <input type="submit" value="Historial del sistema">
+                <br><br>
+            </form>
 
         </div> 
          <crear-footer></crear-footer>

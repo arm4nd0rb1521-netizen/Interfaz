@@ -1,6 +1,6 @@
 package Modelo;
 
-import com.google.protobuf.Timestamp;
+import java.sql.Timestamp;
 
 public class MovimientoStock {
      private int idMovimientoStock;
@@ -9,7 +9,6 @@ public class MovimientoStock {
     private Timestamp fecha;
     private int idProducto;
     private int idUsuario;
-    private String descripcion;
 
     public MovimientoStock() {
     }
@@ -21,7 +20,6 @@ public class MovimientoStock {
         this.fecha = fecha;
         this.idProducto = idProducto;
         this.idUsuario = idUsuario;
-        this.descripcion = descripcion;
     }
 
     public int getIdMovimientoStock() {
@@ -72,13 +70,4 @@ public class MovimientoStock {
         this.idUsuario = idUsuario;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-    
-    
 }
