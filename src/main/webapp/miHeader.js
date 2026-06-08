@@ -10,7 +10,7 @@ class CrearHeader extends HTMLElement {
                         <a href="IHome.html">Home</a>
                         <a href="IVentas.html">Ventas</a>
                         <a href="Reportes.html">Reportes</a>
-                        <a href="ILog.html">Proveedores</a>
+                        <a href="../HTMLs/Proveedores.html">Proveedores</a>
                         <a href="ILog.html">Compras</a>
                         <a href="IAdmin.html">Movimientos de stock</a>
                         <a href="IAdmin.html">Detalles de compra</a>
