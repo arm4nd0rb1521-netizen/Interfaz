@@ -98,3 +98,33 @@ tbody tr:hover{
     transform:scale(1.01);
 }
 
+.volver{
+
+    text-align:center;
+
+    margin-top:40px;
+}
+
+.volver a{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    transition:0.3s;
+}
+
+.volver a:hover{
+
+    background:rgba(255,255,255,0.25);
+
+    transform:translateY(-2px);
+}

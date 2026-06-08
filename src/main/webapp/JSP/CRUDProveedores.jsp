@@ -5,12 +5,24 @@
 <%@page import="DAO.ProveedorDAO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Vendedores</title>
-    </head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Proveedores</title>
+
+    <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
+    <link rel="stylesheet" href="../CSS/tablas.css"/>
+    <link rel="stylesheet" href="../CSS/footerr.css"/>
+    <link rel="stylesheet" href="../CSS/header.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../miHeader.js"></script>
+    <script src="../miFooter.js"></script>
+</head>
     <body>
+        <crear-header></crear-header>
+
+<h1>Gestión de Proveedores</h1>
+<hr>
         <%
             ProveedorDAO pdao = new ProveedorDAO();
             
@@ -45,17 +57,23 @@
                 
                 if(p != null) {
                     out.print("<script>alert('Consulta realizada')</script>");
-                    
+
                     out.print("<table>");
-                    
+
+                    out.print("<thead>");
+
                     out.print("<tr>");
-                    
+
                     out.print("<th>ID</th>");
                     out.print("<th>Nombre</th>");
                     out.print("<th>Telefono</th>");
                     out.print("<th>Grupo</th>");
-                    
+
                     out.print("</tr>");
+
+                    out.print("</thead>");
+
+                    out.print("<tbody>");
                     
                     out.print("<tr>");
                     
@@ -64,8 +82,12 @@
                     out.print("<td>"+p.getTelefono()+"</td>");
                     out.print("<td>"+p.getGrupo()+"</td>");
                     
-                    out.print("</tr>");
-                    out.print("</table>");
+                        out.print("</tr>");
+
+                        out.print("</tbody>");
+
+                        out.print("</table>");
+                        
                 } else {
                     out.print("<script>alert('Proveedor no encontrado')</script>");
                 }
@@ -77,16 +99,22 @@
                 if(!proveedores.isEmpty()) {
                     out.print("<script>alert('Mostrando registros');</script>");
                     
-                    out.print("<table border='1'>");
+                        out.print("<table>");
 
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("<th>Telefono</th>");
-                    out.print("<th>Grupo</th>");
-                    
-                    out.print("</tr>");
+                        out.print("<thead>");
+
+                        out.print("<tr>");
+
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("<th>Telefono</th>");
+                        out.print("<th>Grupo</th>");
+
+                        out.print("</tr>");
+
+                        out.print("</thead>");
+
+                        out.print("<tbody>");
 
                     for(Proveedor p : proveedores) {
 
@@ -99,6 +127,8 @@
 
                         out.print("</tr>");
                     }
+
+                    out.print("</tbody>");
 
                     out.print("</table>");
 
@@ -146,7 +176,9 @@
             }
         %>
         
-        <a href="../HTMLs/Proveedores.html">Regresar</a>
-        
+<div class="volver">
+    <a href="../HTMLs/Proveedores.html">Regresar</a>
+</div>
+        <crear-footer></crear-footer>
     </body>
 </html>

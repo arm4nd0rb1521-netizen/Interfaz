@@ -84,7 +84,9 @@ hr{
 }
 /* BOTONES */
 
-input[type="button"]{
+input[type="button"],
+input[type="submit"]
+{
 
     display:block;
 
@@ -114,7 +116,8 @@ input[type="button"]{
     transition:0.3s;
 }
 
-input[type="button"]:hover{
+input[type="button"]:hover,
+input[type="submit"]:hover{
 
     transform:
         translateY(-5px)
