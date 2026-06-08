@@ -1,15 +1,9 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Roles y permisos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
-
-         <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
-         <link rel="stylesheet" href="../CSS/espacio_tamaño_botones.css"/>
-         
+        <link rel="stylesheet" href="../CSS/gen_ventas.css"/>
         <link rel="stylesheet" href="../CSS/footerr.css"/>
         <link rel="stylesheet" href="../CSS/header.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -18,13 +12,15 @@
     </head>
     <body>
         <crear-header></crear-header>
-        
-        <h1>Reportes</h1>
+        <h1>Roles y permisos</h1>
         <hr>
-        <br><br>
-        <!-- reporte -->
-        
-        <crear-footer></crear-footer>
+        <form actiob="CRUDRoles.jsp" method="post">
+            <label>Ingrese el nombre del nuevo rol</label>
+            <input type="text" name="rol"><br><br>
+            <input type="submit" value="Guardar" name="registrar" />
+        </form>
+                
+                 <crear-footer></crear-footer>
 
     </body>
 </html>

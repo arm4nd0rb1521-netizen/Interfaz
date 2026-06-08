@@ -16,7 +16,7 @@ class CrearHeader extends HTMLElement {
                         <a href="IAdmin.html">Detalles de compra</a>
                         <a href="IAdmin.html">Detalles de venta</a>
                         <a href="Usuarios.html">Usuarios</a>
-                        <a href="IAdmin.html">Roles y permisos</a>
+                        <a href="../HTMLs/Roles.html">Roles y permisos</a>
                         <a href="Productos.html">Productos</a>
                         <a href="IAdmin.html">Categorias de productos</a>
 
