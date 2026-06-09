@@ -31,6 +31,20 @@
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
+                                out.print("<h2>Detalle de compra</h2>");
+                out.print("<hr>");
+                out.print("<form action='RegistrarDetalleCompra.jsp' method='post' name='reg_dtcompra'>");
+                
+                out.print("ID de la compra: <input type='text' name='id'><br><br>");
+                out.print("Fecha: <input type='text' name='fecha' value='"+c.getFecha()+"' readonly><br><br>");
+                out.print("Subtotal: <input type='text' name='total' value='"+c.getTotal()+"' readonly><br><br>");
+                out.print("ID del producto:<input type='text' name='prod' value='"+c.getIdUsuario()+"' readonly><br><br>");
+                out.print("Cantidad: <input type='text' name='cantidad'><br><br>");
+                out.print("Precio unitario: <input type='text' name='prec'><br><br>");
+                
+                out.print("<input type='submit' name='crear_detalle' value='Detalle de la compra'>");
+                
+                out.print("</form>");
             }
             
             if(request.getParameter("consultar_todo") != null) {
