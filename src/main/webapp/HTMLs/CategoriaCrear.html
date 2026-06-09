@@ -4,18 +4,31 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
+        <link rel="stylesheet" href="../CSS/gestionar_usuario.css"/>
+        <link rel="stylesheet" href="../CSS/footerr.css"/>
+        <link rel="stylesheet" href="../CSS/header.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script src="../miHeader.js"></script>
+        <script src="../miFooter.js"></script>
     </head>
     <body>
-        <h1>Crear Rol</h1>
+                <crear-header></crear-header>
+
+        <h1>Crear Categoría</h1>
         <hr>
         <form action="../JSP/CRUDCategoria.jsp" method="post">
+                        <div class="datos">
             <label>Ingrese el nombre de la nueva categoria</label>
             <input type="text" name="nombre"><br><br>
            
             <label>Ingrese la descripcion de la nueva categoria</label>
             <input type="text" name="desc"><br><br>
-            
+                                    </div>
+
             <input type="submit" value="Guardar" name="registrar" />
         </form>
+                                               <crear-footer></crear-footer>
+
     </body>
 </html>
