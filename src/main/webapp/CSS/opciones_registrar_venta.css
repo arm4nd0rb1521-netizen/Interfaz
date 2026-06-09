@@ -1,0 +1,13 @@
+.opciones_registrar_venta{
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 40px;
+     background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+}
