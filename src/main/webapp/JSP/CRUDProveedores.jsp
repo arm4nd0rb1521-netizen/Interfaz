@@ -35,7 +35,6 @@
                 p.setGrupo(request.getParameter("grupo"));
                 
                 if(pdao.insertar(p)){
-                    out.print("<script>alert('Proveedor registrado');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
@@ -45,7 +44,6 @@
                 int id = Integer.parseInt(request.getParameter("id_eliminar"));
                 
                 if(pdao.eliminar(id)) {
-                    out.print("<script>alert('Proveedor eliminado');</script>");
                 } else{
                     out.print("<script>alert('Error al eliminar');</script>");
                 }
@@ -97,7 +95,6 @@
                 proveedores = pdao.buscarTodo();
                 
                 if(!proveedores.isEmpty()) {
-                    out.print("<script>alert('Mostrando registros');</script>");
                     
                         out.print("<table>");
 
@@ -163,9 +160,7 @@
 
                 if(pdao.actualizar(p)) {
 
-                    out.print(
-                        "<script>alert('Proveedor actualizado');</script>"
-                    );
+                   
 
                 } else {
 
