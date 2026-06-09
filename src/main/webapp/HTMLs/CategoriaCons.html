@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
         <link rel="stylesheet" href="../CSS/gestionar_usuario.css"/>
-        <link rel="stylesheet" href="../CSS/gestionar_roles.css"/>
         <link rel="stylesheet" href="../CSS/footerr.css"/>
         <link rel="stylesheet" href="../CSS/header.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -17,19 +15,24 @@
     <body>
         <crear-header></crear-header>
         
-        <h1>Actualizar rol</h1>
+        <h1>Consultar categorias</h1>
         <hr>
         <br><br> 
         
-        <form action="../JSP/ActualizarRol.jsp" method="post" name="act">
+        <form action="../JSP/CRUDCategoria.jsp">
             <div class="datos">
-                <label>Ingrese ID del rol </label>
-                <input type="text" name="id_actualizar">
-                <br><br><br>
+                <label>Ingrese ID de la categoria </label>
+                <input type="text" name="id_consultar">
+                <br><br><br><br><br><br>
 
-                <input type="submit" value="Buscar ID" name="actualizar"/>
+                <input type="submit" value="Consultar categoria" name="consultar_user" />
+                <br>
+
+                <input type="submit" value="Consultar todos" name="consultar_todo" />
+                <br>
             </div>
-        </form>   
-                <crear-footer></crear-footer>
+        </form>
+                               <crear-footer></crear-footer>
+
     </body>
 </html>

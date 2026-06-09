@@ -4,21 +4,43 @@ import java.sql.Timestamp;
 
 public class Compra {
     private int idCompra;
-    private Timestamp fecha;
+    private String fecha;
     private double total;
     private int idProveedor;
     private int idUsuario;
+    private String nombreUsuario;
+    private String nombreProv;
 
     public Compra() {
     }
 
-    public Compra(int idCompra, Timestamp fecha, double total, int idProveedor, int idUsuario) {
+    public Compra(int idCompra, String fecha, double total, int idProveedor, int idUsuario, String nombreUsuario, String nombreProv) {
         this.idCompra = idCompra;
         this.fecha = fecha;
         this.total = total;
         this.idProveedor = idProveedor;
         this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.nombreProv = nombreProv;
     }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getNombreProv() {
+        return nombreProv;
+    }
+
+    public void setNombreProv(String nombreProv) {
+        this.nombreProv = nombreProv;
+    }
+
+   
 
     public int getIdCompra() {
         return idCompra;
@@ -28,11 +50,11 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public Timestamp getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

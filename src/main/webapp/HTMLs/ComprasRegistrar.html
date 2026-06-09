@@ -20,13 +20,21 @@
         <br><br>
         <div class="opciones_registrar_venta">
             
-         <h1>Registrar venta</h1>
+         <h1>Registrar compra</h1>
         <hr>
-        <form action="../JSP/CRUDVentas.jsp" method="post">
+        <form action="../JSP/CRUDCompras.jsp" method="post">
             <label>Ingresa la fecha</label>
-            <input type="text" name="venta"><br><br>
+            <input type="text" name="compra"><br><br>
+            
+            <label>Ingresa el total</label>
+            <input type="text" name="total"><br><br>
+            
+            <label>Ingresa Id de proveedor</label>
+            <input type="text" name="id_prov"><br><br>
+            
             <label>Ingresa Id de usuario</label>
             <input type="text" name="id_usuario"><br><br>
+            
             <input type="submit" value="Guardar" name="registrar" />
         </form>
         </div>

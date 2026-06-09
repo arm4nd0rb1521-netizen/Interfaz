@@ -1,5 +1,5 @@
-<%@page import="DAO.RolDAO" %>
-<%@page import="Modelo.Rol" %>
+<%@page import="DAO.CategoriaDAO"%>
+<%@page import="Modelo.Categoria" %>
 <html>
 <head>
     <meta http-equiv="Content-Type"
@@ -20,35 +20,35 @@
     <body>
 <crear-header></crear-header>        
         <%
-            RolDAO rdao = new RolDAO();
+            CategoriaDAO cdao = new CategoriaDAO();
             
-            if(request.getParameter("actualizar_prov") != null)  {
+            if(request.getParameter("actualizar") != null)  {
                 int id = Integer.parseInt(request.getParameter("id_actualizar"));
                 
-                Rol r =  rdao.buscarUno(id);
-                if(r != null) {
+                Categoria c =  cdao.buscarUno(id);
+                if(c != null) {
                 
-                    out.print("<h2>Usuario</h2>");
+                    out.print("<h2>Categoria</h2>");
                     out.print("<table>");
                     out.print("<tr>");
                     
                     out.print("<th>ID</th>");
                     out.print("<th>Nombre</th>");
-                    out.print("<th>Apellido</th>");
-                    out.print("<th>Contraseña</th>");
-                    out.print("<th>Rol</th>");
+                    out.print("<th>Descripcion</th>");
+
                     out.print("</tr>");
                     
                     out.print("<tr>");
                     
                     out.print("<td>"+id+"</td>");
-                    out.print("<td>"+r.getInombre()+"</td>");
+                    out.print("<td>"+c.getNombre()+"</td>");
+                    out.print("<td>"+c.getDescripcion()+"</td>");
                     
                     out.print("</tr>");
                     out.print("</table>");
                     out.print("<br><br><br><br>");
                     
-                    out.print("<form class='formulario' action='CRUDRoles.jsp' method='post'>");
+                    out.print("<form class='formulario' action='CRUDCategoria.jsp' method='post'>");
 
                         out.print("<div class='campo'>");
                         out.print("<label>ID</label>");
@@ -57,7 +57,12 @@
 
                         out.print("<div class='campo'>");
                         out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+r.getInombre()+"'>");
+                        out.print("<input type='text' name='nombrecin' value='"+c.getNombre()+"'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Nombre</label>");
+                        out.print("<input type='text' name='desc' value='"+c.getDescripcion()+"'>");
                         out.print("</div>");
 
                         out.print("<input type='submit' value='Actualizar' name='valida'>");
@@ -70,7 +75,7 @@
         %>
  <div class="volver">
 
-     <a href="../HTMLs/Roles.html">
+    <a href="../HTMLs/Proveedores.html">
         Regresar
     </a>
 

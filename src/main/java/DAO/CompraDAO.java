@@ -25,7 +25,7 @@ public class CompraDAO {
 
             ps = con.prepareStatement(sql);
 
-            ps.setTimestamp(1, c.getFecha());
+            ps.setString(1, c.getFecha());
             ps.setDouble(2, c.getTotal());
             ps.setInt(3, c.getIdProveedor());
             ps.setInt(4, c.getIdUsuario());
@@ -104,7 +104,7 @@ public class CompraDAO {
                 );
 
                 c.setFecha(
-                    rs.getTimestamp("fecha")
+                    rs.getString("fecha")
                 );
 
                 c.setTotal(
@@ -149,7 +149,10 @@ public class CompraDAO {
             st = con.createStatement();
 
             rs = st.executeQuery(
-                "SELECT * FROM compra;"
+                "SELECT c.id_compra, c.fecha, c.total, p.nombre AS proveedor, u.nombre AS usuario "
+                        + "FROM compra c "
+                        + "INNER JOIN proveedor p ON c.id_proveedor = p.id_proveedor "
+                        + "INNER JOIN usuario u ON c.id_usuario = u.id_usuario;"
             );
 
             while(rs.next()) {
@@ -161,19 +164,19 @@ public class CompraDAO {
                 );
 
                 c.setFecha(
-                    rs.getTimestamp("fecha")
+                    rs.getString("fecha")
                 );
 
                 c.setTotal(
                     rs.getDouble("total")
                 );
 
-                c.setIdProveedor(
-                    rs.getInt("id_proveedor")
+                c.setNombreProv(
+                    rs.getString("proveedor")
                 );
 
-                c.setIdUsuario(
-                    rs.getInt("id_usuario")
+                c.setNombreUsuario(
+                    rs.getString("usuario")
                 );
 
                 lista.add(c);
@@ -212,7 +215,7 @@ public class CompraDAO {
 
             ps = con.prepareStatement(sql);
 
-            ps.setTimestamp(1, c.getFecha());
+            ps.setString(1, c.getFecha());
             ps.setDouble(2, c.getTotal());
             ps.setInt(3, c.getIdProveedor());
             ps.setInt(4, c.getIdUsuario());
