@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
+        <link rel="stylesheet" href="../CSS/gestionar_usuario.css"/>
+        <link rel="stylesheet" href="../CSS/footerr.css"/>
+        <link rel="stylesheet" href="../CSS/header.css"/>
+        <script src="../miHeader.js"></script>
+        <script src="../miFooter.js"></script>
+    </head>
+    <body>
+        <crear-header></crear-header>
+        
+        <h1>Crear reporte</h1>
+        <hr>
+        <br><br> 
+        
+        <form action="../JSP/CRUDReportes2.jsp" method="post" name="crear">
+            <div class="datos">
+                <label>Ingrese la fecha </label>
+                <input type="text" name="fecha">
+                <br><br>
+
+                <label>Ingrese el tipo de reporte</label>
+                <input type="text" name="tipoRep">
+                <br><br>
+
+                <label>Describa el reporte</label>
+                <input type="text" name="descripConte">
+                <br><br>
+                                <label>Ingrese el ID del usuario</label>
+                <input type="text" name="descripConte">
+                <br><br>
+            </div>
+        
+            <input type="submit" value="Crear reporte" name="registrar">
+        </form>
+        <crear-footer></crear-footer>
+
+    </body>
+</html>
+       
+               

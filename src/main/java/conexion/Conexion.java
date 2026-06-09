@@ -9,11 +9,10 @@ public class Conexion {
         "jdbc:mysql://localhost/myownshop?autoReconnect=true&useSSL=false";
 
     private static final String USER = "root";
-<<<<<<< HEAD
-    private static final String PASS = "ces160408";
-=======
+
+
     private static final String PASS = "CUB200915GDS";
->>>>>>> a12c062 (todo sin diseño)
+
 
     public static Connection getConexion() {
 

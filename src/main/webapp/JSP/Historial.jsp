@@ -7,6 +7,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../CSS/tablas.css"/>
+
         <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
         <link rel="stylesheet" href="../CSS/footerr.css"/>
         <link rel="stylesheet" href="../CSS/header.css"/>
@@ -22,18 +24,17 @@
             out.print("<h1>Historial del sistema</h1>");
             MovimientoStockDAO msdao = new MovimientoStockDAO();
             List <MovimientoStock> movs = new ArrayList<>();
-            String accion = request.getParameter("accion");
 
-            if (accion == null) {
+            if (request.getParameter("ver") ==  null) {
             %>
             <script>
                 alert('Acceso inválido a la página');
             </script>
+           
             <%
-            } 
-            else if ("historial".equals(accion)) {
-
-                if (movs != null && !movs.isEmpty()) {
+                }
+                movs = msdao.buscarTodo();
+                if (!movs.isEmpty()) {
             %>
 
             <script>
@@ -73,7 +74,7 @@
             </script>
 
             <%
-                }
+                
             }
             %>
     

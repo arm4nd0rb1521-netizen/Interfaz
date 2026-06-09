@@ -8,7 +8,47 @@
         <link rel="stylesheet" href="../CSS/gestionar_usuario.css"/>
         <link rel="stylesheet" href="../CSS/footerr.css"/>
         <link rel="stylesheet" href="../CSS/header.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script src="../miHeader.js"></script>
+        <script src="../miFooter.js"></script>
+    </head>
+    <body>
+        <crear-header></crear-header>
+        
+        <h1>Crear cuenta</h1>
+        <hr>
+        <br><br> 
+        
+        <form action="../JSP/CRUDUsuarios2.jsp" method="post" name="crear">
+            <div class="datos">
+                <label>Ingrese un nombre de usuario </label>
+                <input type="text" name="user">
+                <br><br>
+
+                <label>Ingrese el apellido del usuario </label>
+                <input type="text" name="ape">
+                <br><br>
+
+                <label>Cree una contraseña</label>
+                <input type="text" name="password_crear">
+                <br><br>
+
+                <select name="tipo_usuario">
+                    <option value="Nada">Seleccione alguna</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Encargado_almacen">Encargado de almacen</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                <br><br>
+            </div>
+        
+            <input type="submit" value="Crear usuario" name="registrar">
+        </form>
+                               <crear-footer></crear-footer>
+
+    </body>
+</html>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <script src="../miHeader.js"></script>
         <script src="../miFooter.js"></script>
     </head>

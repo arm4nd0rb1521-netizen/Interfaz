@@ -7,8 +7,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
+     <link rel="stylesheet" href="../CSS/tablas.css"/>
+    <link rel="stylesheet" href="../CSS/footerr.css"/>
+    <link rel="stylesheet" href="../CSS/header.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../miHeader.js"></script>
+    <script src="../miFooter.js"></script>
         <title>JSP Page</title>
     </head>
+               <crear-header></crear-header>
+
     <body>
  <%
             DetalleVentaDAO dtdao = new DetalleVentaDAO();
@@ -73,4 +82,6 @@
             }
         %>
     </body>
+                    <crear-footer></crear-footer>   
+
 </html>

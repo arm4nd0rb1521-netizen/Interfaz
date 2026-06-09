@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/gen_administracion.css"/>
+        <link rel="stylesheet" href="../CSS/gestionar_usuario.css"/>
+        <link rel="stylesheet" href="../CSS/footerr.css"/>
+        <link rel="stylesheet" href="../CSS/header.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script src="../miHeader.js"></script>
+        <script src="../miFooter.js"></script>
+    </head>
+    <body>
+        <crear-header></crear-header>
+        
+        <h1>Consultar reportes</h1>
+        <hr>
+        <br><br> 
+        
+        <form action="../JSP/CRUDReportes2.jsp">
+            <div class="datos">
+                <label>Ingrese ID del usuar: </label>
+                <input type="text" name="id_consultar">
+                <br><br><br><br><br><br>
+
+                <input type="submit" value="Consultar cuenta" name="consultar_user" />
+                <br>
+
+                <input type="submit" value="Consultar todos" name="consultar_todo" />
+                <br>
+            </div>
+        </form>
+                               <crear-footer></crear-footer>
+
+    </body>
+</html>
