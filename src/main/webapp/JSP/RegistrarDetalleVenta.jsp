@@ -80,8 +80,61 @@
 
                 }
             }
+            
+            if(request.getParameter("valida") != null) {
+
+                DetalleVenta dt = new DetalleVenta();
+
+                dt.setIdDetalleVenta(
+                
+                    Integer.parseInt(
+                        request.getParameter("idecin")
+                    )
+                );
+
+                dt.setCantidad(
+                    Integer.parseInt(request.getParameter("cantidad"))
+                     );
+                
+                dt.setPrecioUnitario(
+                        Double.parseDouble(request.getParameter("precioU"))
+                );
+                
+                dt.setSubtotal(
+                        Double.parseDouble(request.getParameter("subtotal"))
+                );
+                
+                dt.setIdVenta(
+                        Integer.parseInt(request.getParameter("idCompra"))
+                );
+                
+                dt.setIdProducto(
+                        Integer.parseInt(request.getParameter("idProd"))
+                );
+
+                if(dtdao.actualizar(dt)) {
+
+                    out.print(
+                        "<script>alert('Actualizado');</script>"
+                    );
+
+                } else {
+
+                    out.print(
+                        "<script>alert('Error al actualizar');</script>"
+                    );
+                }
+            }
         %>
+         <div class="volver">
+
+             <a href="../HTMLs/DetalleVenta.html">
+        Regresar
+    </a>
+
+</div>
     </body>
+    
                     <crear-footer></crear-footer>   
 
 </html>

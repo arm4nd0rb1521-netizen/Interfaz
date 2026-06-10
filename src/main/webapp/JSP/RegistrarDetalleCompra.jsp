@@ -36,13 +36,20 @@
                        out.print("<script>alert('Error: " + e.getMessage() + "')</script>");
                    }
                
- 
-              
-                
                 if(dtdao.insertar(dt)){
                     out.print("<script>alert('Detalle de compra registrado');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
+                }
+            }
+            
+            if(request.getParameter("eliminar") != null) {
+                int id = Integer.parseInt(request.getParameter("id_eliminar"));
+                
+                if(dtdao.eliminar(id)) {
+                    out.print("<script>alert('Detalle de venta  eliminado');</script>");
+                } else{
+                    out.print("<script>alert('Error al eliminar');</script>");
                 }
             }
             
@@ -86,6 +93,51 @@
 
                     out.print("<script>alert('No hay compras realizadas');</script>");
 
+                }
+            }
+            
+if(request.getParameter("valida") != null) {
+
+                DetalleCompra dt = new DetalleCompra();
+
+                dt.setIdDetalleCompra(
+                
+                    Integer.parseInt(
+                        request.getParameter("idecin")
+                    )
+                );
+
+                dt.setCantidad(
+                    Integer.parseInt(request.getParameter("cantidad"))
+                     );
+                
+                dt.setPrecioUnitario(
+                        Double.parseDouble(request.getParameter("precioU"))
+                );
+                
+                dt.setSubtotal(
+                        Double.parseDouble(request.getParameter("subtotal"))
+                );
+                
+                dt.setIdCompra(
+                        Integer.parseInt(request.getParameter("idCompra"))
+                );
+                
+                dt.setIdProducto(
+                        Integer.parseInt(request.getParameter("idProd"))
+                );
+
+                if(dtdao.actualizar(dt)) {
+
+                    out.print(
+                        "<script>alert('Actualizado');</script>"
+                    );
+
+                } else {
+
+                    out.print(
+                        "<script>alert('Error al actualizar');</script>"
+                    );
                 }
             }
         %>
