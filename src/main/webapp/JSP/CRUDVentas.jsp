@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
     <link rel="stylesheet" href="../CSS/tablas.css"/>
     <link rel="stylesheet" href="../CSS/footerr.css"/>
+    <link rel="stylesheet" href="../CSS/formularios _Actualizar.css"/>
     <link rel="stylesheet" href="../CSS/header.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../miHeader.js"></script>
     <script src="../miFooter.js"></script>
         <title>Productos</title>
-    </head>
-    
     <crear-header></crear-header>
+    </head>
     <body>
         <h1>Ventas</h1>
         <%
@@ -163,8 +163,12 @@
             }
         %>
         
-        <a href="../HTMLs/IVentas.html">Regresar</a>
-        <crear-footer></crear-footer>
+ <div class="volver">
+
+     <a href="../HTMLs/IVentas.html">
+        Regresar
+    </a>        
     </body>
+    <crear-footer></crear-footer>
 </html>
 

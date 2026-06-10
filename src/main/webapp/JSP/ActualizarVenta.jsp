@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=UTF-8">
 
-    <title>Actualizar Proveedor</title>
+    <title>Actualizar Venta</title>
 
     <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
     <link rel="stylesheet" href="../CSS/tablas.css"/>
@@ -15,14 +15,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../miHeader.js"></script>
     <script src="../miFooter.js"></script>
+    <crear-header></crear-header>        
+
 </head>
 
     <body>
-<crear-header></crear-header>        
         <%
             VentaDAO rdao = new VentaDAO();
             
-            if(request.getParameter("actualizar_prov") != null)  {
+            if(request.getParameter("actualizar") != null)  {
                 int id = Integer.parseInt(request.getParameter("id_actualizar"));
                 
                 Venta v =  rdao.buscarUno(id);
@@ -55,9 +56,10 @@
                         out.print("</div>");
 
                         out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+v.getFecha()+"'>");
-                        out.print("<input type='text' name='usuario' value='"+v.getIdUsuario()+"'>");
+                        out.print("<label>Fecha</label><br>");
+                        out.print("<input type='text' name='nombrecin' value='"+v.getFecha()+"'><br><br>");
+                        out.print("<label>ID del usuario</label><br>");
+                        out.print("<input type='text' name='usuario' value='"+v.getIdUsuario()+"'><br><br>");
                         out.print("</div>");
 
                         out.print("<input type='submit' value='Actualizar' name='valida'>");
@@ -76,6 +78,7 @@
 
 </div>
 
-<crear-footer></crear-footer>
     </body>
+             <crear-footer></crear-footer>
+
 </html>
