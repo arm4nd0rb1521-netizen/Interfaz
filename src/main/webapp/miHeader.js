@@ -9,7 +9,6 @@ class CrearHeader extends HTMLElement {
                     <nav class="navegacion">
                         <a href="../HTMLs/IHome.html">Home</a>
                         <a href="../HTMLs/IVentas.html">Ventas</a>
-                        <a href="../HTMLs/Reportes.html">Reportes</a>
                         <a href="../HTMLs/Proveedores.html">Proveedores</a>
                         <a href="../HTMLs/Compras.html">Compras</a>
                         <a href="../HTMLs/Historial del sistema.html">Movimientos de stock</a>
