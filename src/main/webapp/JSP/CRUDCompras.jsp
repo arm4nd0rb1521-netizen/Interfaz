@@ -96,6 +96,15 @@
                     out.print("<script>alert('No hay compras realizadas');</script>");
 
                 }
+                if(request.getParameter("eliminar") != null) {
+                int id = Integer.parseInt(request.getParameter("id_eliminar"));
+                
+                if(cdao.eliminar(id)) {
+                    out.print("<script>alert('Compra eliminada');</script>");
+                } else{
+                    out.print("<script>alert('Error al eliminar');</script>");
+                }
+            }
             }
         %>
                 <crear-footer></crear-footer>
