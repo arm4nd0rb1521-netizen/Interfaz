@@ -37,7 +37,6 @@
                    }
                
                 if(dtdao.insertar(dt)){
-                    out.print("<script>alert('Detalle de compra registrado');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
@@ -47,7 +46,6 @@
                 int id = Integer.parseInt(request.getParameter("id_eliminar"));
                 
                 if(dtdao.eliminar(id)) {
-                    out.print("<script>alert('Detalle de venta  eliminado');</script>");
                 } else{
                     out.print("<script>alert('Error al eliminar');</script>");
                 }
@@ -57,7 +55,6 @@
                 detalles = dtdao.buscarTodo();
                 
                 if(!detalles.isEmpty()) {
-                    out.print("<script>alert('Mostrando registros');</script>");
                     
                     out.print("<table border='1'>");
 
@@ -129,9 +126,6 @@ if(request.getParameter("valida") != null) {
 
                 if(dtdao.actualizar(dt)) {
 
-                    out.print(
-                        "<script>alert('Actualizado');</script>"
-                    );
 
                 } else {
 
@@ -141,6 +135,12 @@ if(request.getParameter("valida") != null) {
                 }
             }
         %>
+           <div class="volver">
+
+               <a href="../HTMLs/DetalleCompra.html">
+        Regresar
+    </a>    
+ </div>
              <crear-footer></crear-footer>
     </body>
 </html>

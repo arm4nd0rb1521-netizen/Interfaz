@@ -38,7 +38,6 @@
             %>
 
             <script>
-                alert('Mostrando historial');
             </script>
 
             <%

@@ -54,7 +54,6 @@
                 Proveedor p = pdao.buscarUno(id);
                 
                 if(p != null) {
-                    out.print("<script>alert('Consulta realizada')</script>");
 
                     out.print("<table>");
 

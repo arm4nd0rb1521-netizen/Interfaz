@@ -32,7 +32,6 @@
                 dt.setIdProducto(Integer.parseInt(request.getParameter("prod")));
                 
                 if(dtdao.insertar(dt)){
-                    out.print("<script>alert('Detalle de venta registrado');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
@@ -42,7 +41,6 @@
                 detalles = dtdao.buscarTodo();
                 
                 if(!detalles.isEmpty()) {
-                    out.print("<script>alert('Mostrando registros');</script>");
                     
                     out.print("<table border='1'>");
 
@@ -114,9 +112,6 @@
 
                 if(dtdao.actualizar(dt)) {
 
-                    out.print(
-                        "<script>alert('Actualizado');</script>"
-                    );
 
                 } else {
 
@@ -128,7 +123,7 @@
         %>
          <div class="volver">
 
-             <a href="../HTMLs/DetalleVenta.html">
+             <a href="../HTMLs/IVentas.html">
         Regresar
     </a>
 

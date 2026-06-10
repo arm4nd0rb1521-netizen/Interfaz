@@ -11,8 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="../CSS/gen_logistica.css"/>
     <link rel="stylesheet" href="../CSS/tablas.css"/>
+        <link rel="stylesheet" href="../CSS/formularios _Actualizar.css"/>
     <link rel="stylesheet" href="../CSS/footerr.css"/>
-    <link rel="stylesheet" href="../CSS/formularios _Actualizar.css"/>
+
     <link rel="stylesheet" href="../CSS/header.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../miHeader.js"></script>
@@ -33,31 +34,55 @@
                 v.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
                 
                 if(vdao.insertar(v)){
-                    out.print("<script>alert('Venta registrada');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
-                                out.print("<h2>Detalle de venta</h2>");
-                out.print("<hr>");
-                out.print("<form action='RegistrarDetalleVenta.jsp' method='post' name='reg_dtcompra'>");
-                
-                out.print("ID de la compra: <input type='text' name='id' ><br><br>'");
-                out.print("Fecha: <input type='text' name='fecha' value='"+v.getFecha()+"' readonly><br><br>");
-                out.print("ID del producto:<input type='text' name='prod' value='"+v.getIdUsuario()+"' readonly><br><br>");
-                out.print("Subtotal: <input type='text' name='total'><br><br>");
-                out.print("Cantidad: <input type='text' name='cantidad'><br><br>");
-                out.print("Precio unitario: <input type='text' name='prec'><br><br>");
-                
-                out.print("<input type='submit' name='crear_detalle' value='Detalle de la compra'>");
-                
-                out.print("</form>");
+                             out.print("<h2>Detalle de venta</h2>");
+out.print("<hr>");
+
+out.print("<form action='RegistrarDetalleVenta.jsp' method='post' "
+        + "name='reg_dtcompra' class='formulario'>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>ID de la venta</label>");
+                        out.print("<input type='text' name='id'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Fecha</label>");
+                        out.print("<input type='text' name='fecha' value='"+v.getFecha()+"' readonly>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>ID Usuario</label>");
+                        out.print("<input type='text' name='prod' value='"+v.getIdUsuario()+"' readonly>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Subtotal</label>");
+                        out.print("<input type='text' name='total'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Cantidad</label>");
+                        out.print("<input type='text' name='cantidad'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Precio unitario</label>");
+                        out.print("<input type='text' name='prec'>");
+                        out.print("</div>");
+
+                        out.print("<input type='submit' name='crear_detalle' "
+                                + "value='Registrar detalle'>");
+
+                        out.print("</form>");
             }
             
             if(request.getParameter("eliminar") != null) {
                 int id = Integer.parseInt(request.getParameter("id_eliminar"));
                 
                 if(vdao.eliminar(id)) {
-                    out.print("<script>alert('Rol eliminado');</script>");
                 } else{
                     out.print("<script>alert('Error al eliminar');</script>");
                 }
@@ -68,7 +93,6 @@
                 Venta v= vdao.buscarUno(id);
                 
                 if(v != null) {
-                    out.print("<script>alert('Consulta realizada')</script>");
                     
                     out.print("<table>");
                     
@@ -97,7 +121,6 @@
                 ventas = vdao.buscarTodo();
                 
                 if(!ventas.isEmpty()) {
-                    out.print("<script>alert('Mostrando registros');</script>");
                     
                     out.print("<table border='1'>");
 
@@ -150,9 +173,6 @@
 
                 if(vdao.actualizar(v)) {
 
-                    out.print(
-                        "<script>alert('Rol actualizado');</script>"
-                    );
 
                 } else {
 
@@ -167,7 +187,8 @@
 
      <a href="../HTMLs/IVentas.html">
         Regresar
-    </a>        
+    </a>    
+ </div>
     </body>
     <crear-footer></crear-footer>
 </html>

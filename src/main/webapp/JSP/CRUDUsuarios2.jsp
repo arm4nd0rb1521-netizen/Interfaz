@@ -46,7 +46,6 @@
                 u.setIdRol(rol);
                 
                 if(udao.insertar(u)){
-                    out.print("<script>alert('Usuario registrado');</script>");
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
@@ -56,7 +55,6 @@
                 int id = Integer.parseInt(request.getParameter("id_eliminar"));
                 
                 if(udao.eliminar(id)) {
-                    out.print("<script>alert('Usuario eliminado');</script>");
                 } else{
                     out.print("<script>alert('Error al eliminar');</script>");
                 }
@@ -67,7 +65,6 @@
                 Usuario u = udao.buscarUno(id);
                 
                 if(u != null) {
-                    out.print("<script>alert('Consulta realizada')</script>");
                     
                     out.print("<table>");
                     
@@ -100,7 +97,6 @@
                 usuarios = udao.buscarTodo();
                 
                 if(!usuarios.isEmpty()) {
-                    out.print("<script>alert('Mostrando registros');</script>");
                     
                     out.print("<table border='1'>");
 
@@ -172,9 +168,6 @@
 
                 if(udao.actualizar(u)) {
 
-                    out.print(
-                        "<script>alert('Usuario actualizado');</script>"
-                    );
 
                 } else {
 
@@ -184,9 +177,12 @@
                 }
             }
         %>
-        <a href="../HTMLs/Usuarios.html">Regresar</a>
+       <div class="volver">
+    <a href="../HTMLs/Usuarios.html">Regresar</a>
+</div>
 
-    </body>
-                <crear-footer></crear-footer>   
+<crear-footer></crear-footer>
+
+</body> 
 
 </html>

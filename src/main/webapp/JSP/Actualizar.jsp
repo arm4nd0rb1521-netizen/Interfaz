@@ -48,14 +48,30 @@
                     out.print("</table>");
                     out.print("<br><br><br><br>");
                     
-                    out.print("<form action='CRUDUsuarios2.jsp' method='post' name='actualiza'>");
-                    
-                    out.print("ID: <input type='text' name='idecin' value='"+id+"' readonly><br><br>");
-                    out.print("Nombre: <input type='text' name='nombrecin' value='"+u.getNombre()+"'><br><br>");
-                    out.print("Apellido: <input type='text' name='apellidocin' value='"+u.getApellido()+"'><br><br>");
-                    out.print("Contraseña: <input type='text' name='contrasenia' value='"+u.getContraseña()+"'><br><br>");
-                    
-                    out.print("Rol:<br><br>");
+                    out.print("<form class='formulario' action='CRUDUsuarios2.jsp' method='post' name='actualiza'>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>ID</label>");
+                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Nombre</label>");
+                        out.print("<input type='text' name='nombrecin' value='"+u.getNombre()+"'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Apellido</label>");
+                        out.print("<input type='text' name='apellidocin' value='"+u.getApellido()+"'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Contraseña</label>");
+                        out.print("<input type='text' name='contrasenia' value='"+u.getContraseña()+"'>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>Rol</label>");
                     if(u.getNombreRol().equals("Vendedor")) {
                         out.print("<select name='rolecin'>");
                         out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
@@ -92,16 +108,21 @@
                         out.print("<option selected value='Administrador'>Administrador</option>");
                     }
                     out.print("</select>");
-                    out.print("<br><br>");
-                    
+                    out.print("</div>");
+
                     out.print("<input type='submit' value='Actualizar' name='valida'>");
+
                     out.print("</form>");
                 
                 }
                 
             }
         %>
-        <a href="../HTMLs/Usuarios.html">Regresar</a>
-    </body>
+       <div class="volver">
+    <a href="../HTMLs/Usuarios.html">Regresar</a>
+</div>
+
 <crear-footer></crear-footer>
+
+</body>
 </html>

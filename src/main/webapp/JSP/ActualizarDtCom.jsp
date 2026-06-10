@@ -96,7 +96,7 @@
         %>
  <div class="volver">
 
-    <a href="../HTMLs/Proveedores.html">
+     <a href="../HTMLs/DetalleCompra.html">
         Regresar
     </a>
 
