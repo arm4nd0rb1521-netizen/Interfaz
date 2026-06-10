@@ -16,27 +16,23 @@
     <script src="../miHeader.js"></script>
     <script src="../miFooter.js"></script>
 </head>
-
-    <body>
 <crear-header></crear-header>        
+    <body>
         <%
             RolDAO rdao = new RolDAO();
             
-            if(request.getParameter("actualizar_prov") != null)  {
+            if(request.getParameter("actualizar") != null)  {
                 int id = Integer.parseInt(request.getParameter("id_actualizar"));
                 
                 Rol r =  rdao.buscarUno(id);
                 if(r != null) {
                 
-                    out.print("<h2>Usuario</h2>");
+                    out.print("<h2>Actualizar Rol</h2>");
                     out.print("<table>");
                     out.print("<tr>");
                     
                     out.print("<th>ID</th>");
                     out.print("<th>Nombre</th>");
-                    out.print("<th>Apellido</th>");
-                    out.print("<th>Contraseña</th>");
-                    out.print("<th>Rol</th>");
                     out.print("</tr>");
                     
                     out.print("<tr>");
