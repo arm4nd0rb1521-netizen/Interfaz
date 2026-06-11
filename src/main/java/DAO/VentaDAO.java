@@ -14,6 +14,7 @@ public class VentaDAO {
 
         Connection con = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -23,12 +24,25 @@ public class VentaDAO {
                 "INSERT INTO venta(fecha, id_usuario) " +
                 "VALUES(?, ?)";
 
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, v.getFecha());
             ps.setInt(2, v.getIdUsuario());
 
-            return ps.executeUpdate() > 0;
+            int filas = ps.executeUpdate();
+
+            if(filas > 0) {
+
+                rs = ps.getGeneratedKeys();
+
+                if(rs.next()) {
+                    v.setIdVenta(rs.getInt(1));
+            }
+
+            return true;
+        }
+
+        return false;
 
         } catch(Exception e) {
 
@@ -39,6 +53,7 @@ public class VentaDAO {
 
             try { if(ps != null) ps.close(); } catch(Exception e) {}
             try { if(con != null) con.close(); } catch(Exception e) {}
+            try { if(rs != null) rs.close(); } catch(Exception e) {}
         }
     }
 

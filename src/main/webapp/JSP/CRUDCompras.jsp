@@ -32,55 +32,63 @@
             
             if(request.getParameter("registrar") != null) {
                 Compra c = new Compra();
+                try {
                 c.setFecha(request.getParameter("compra"));
                 c.setTotal(Double.parseDouble(request.getParameter("total")));
                 c.setIdProveedor(Integer.parseInt(request.getParameter("id_prov")));
                 c.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
+                } catch(NumberFormatException e) {
+                    %>
+                    <script>alert('Tipo de dato invalido');</script>
+                    <script>history.back();</script>
+                    <%
+                    return;
+                }
                 
                 if(cdao.insertar(c)){
+                    out.print("<form action='RegistrarDetalleCompra.jsp' "
+                                        + "method='post' "
+                                        + "name='reg_dtcompra' "
+                                        + "class='formulario'>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>ID de la compra "+c.getIdCompra()+"</label>");
+                    out.print("<input type='hidden' name='id' value='"+c.getIdCompra()+"'>");
+                    out.print("</div>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>Fecha</label>");
+                    out.print("<input type='text' name='fecha' value='"+c.getFecha()+"' readonly>");
+                    out.print("</div>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>Subtotal</label>");
+                    out.print("<input type='text' name='total' value='"+c.getTotal()+"' readonly>");
+                    out.print("</div>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>ID del producto</label>");
+                    out.print("<input type='text' name='prod' value='"+c.getIdUsuario()+"' readonly>");
+                    out.print("</div>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>Cantidad</label>");
+                    out.print("<input type='text' name='cantidad'>");
+                    out.print("</div>");
+
+                    out.print("<div class='campo'>");
+                    out.print("<label>Precio unitario</label>");
+                    out.print("<input type='text' name='prec'>");
+                    out.print("</div>");
+
+                    out.print("<input type='submit' "
+                            + "name='crear_detalle' "
+                            + "value='Registrar detalle'>");
+
+                    out.print("</form>");
                 } else{
-                    out.print("<script>alert('Error al registrar');</script>");
+                    out.print("<script>alert('Error al registrar la compra');</script>");
                 }
-                               out.print("<form action='RegistrarDetalleCompra.jsp' "
-        + "method='post' "
-        + "name='reg_dtcompra' "
-        + "class='formulario'>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>ID de la compra</label>");
-                                    out.print("<input type='text' name='id'>");
-                                    out.print("</div>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>Fecha</label>");
-                                    out.print("<input type='text' name='fecha' value='"+c.getFecha()+"' readonly>");
-                                    out.print("</div>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>Subtotal</label>");
-                                    out.print("<input type='text' name='total' value='"+c.getTotal()+"' readonly>");
-                                    out.print("</div>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>ID del producto</label>");
-                                    out.print("<input type='text' name='prod' value='"+c.getIdUsuario()+"' readonly>");
-                                    out.print("</div>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>Cantidad</label>");
-                                    out.print("<input type='text' name='cantidad'>");
-                                    out.print("</div>");
-
-                                    out.print("<div class='campo'>");
-                                    out.print("<label>Precio unitario</label>");
-                                    out.print("<input type='text' name='prec'>");
-                                    out.print("</div>");
-
-                                    out.print("<input type='submit' "
-                                            + "name='crear_detalle' "
-                                            + "value='Registrar detalle'>");
-
-                                    out.print("</form>");
             }
             
             if(request.getParameter("consultar_todo") != null) {

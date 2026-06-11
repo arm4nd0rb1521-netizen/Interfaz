@@ -14,7 +14,8 @@ public class CompraDAO {
 
         Connection con = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
+        
         try {
 
             con = Conexion.getConexion();
@@ -23,14 +24,26 @@ public class CompraDAO {
                 "INSERT INTO compra(fecha, total, id_proveedor, id_usuario) " +
                 "VALUES(?,?,?,?)";
 
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, c.getFecha());
             ps.setDouble(2, c.getTotal());
             ps.setInt(3, c.getIdProveedor());
             ps.setInt(4, c.getIdUsuario());
 
-            return ps.executeUpdate() > 0;
+            int filas = ps.executeUpdate();
+                    
+            if(filas != 0) {
+                rs = ps.getGeneratedKeys();
+                
+                if(rs.next()) {
+                    c.setIdCompra(rs.getInt(1));
+                }
+                
+                return true;
+            }
+            
+            return false;
 
         } catch(Exception e) {
 

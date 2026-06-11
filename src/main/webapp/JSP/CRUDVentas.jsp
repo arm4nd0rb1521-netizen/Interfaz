@@ -24,28 +24,37 @@
     <body>
         <h1>Ventas</h1>
         <%
-          VentaDAO vdao = new VentaDAO();
+           VentaDAO vdao = new VentaDAO();
             
             List <Venta> ventas = new ArrayList<>();
             
             if(request.getParameter("registrar") != null) {
                 Venta v = new Venta();
-                v.setFecha(request.getParameter("venta"));
-                v.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
+                
+                try {
+                    v.setFecha(request.getParameter("venta"));
+                    v.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
+                } catch(NumberFormatException e) {
+                        out.print(
+                            "<script>" +
+                            "alert('Error en el tipo de dato');" +
+                            "history.back();" +
+                            "</script>"
+                        );
+
+                        return;
+                }
                 
                 if(vdao.insertar(v)){
-                } else{
-                    out.print("<script>alert('Error al registrar');</script>");
-                }
-                             out.print("<h2>Detalle de venta</h2>");
-out.print("<hr>");
+                        out.print("<h2>Detalle de venta</h2>");    
+                        out.print("<hr>");
 
-out.print("<form action='RegistrarDetalleVenta.jsp' method='post' "
-        + "name='reg_dtcompra' class='formulario'>");
+                        out.print("<form action='RegistrarDetalleVenta.jsp' method='post' "
+                                            + "name='reg_dtcompra' class='formulario'>");
 
                         out.print("<div class='campo'>");
-                        out.print("<label>ID de la venta</label>");
-                        out.print("<input type='text' name='id'>");
+                        out.print("<label>ID de la venta " +v.getIdVenta()+ "</label>");
+                        out.print("<input type='hidden' name='id' value='"+v.getIdVenta()+"'>");
                         out.print("</div>");
 
                         out.print("<div class='campo'>");
@@ -55,7 +64,12 @@ out.print("<form action='RegistrarDetalleVenta.jsp' method='post' "
 
                         out.print("<div class='campo'>");
                         out.print("<label>ID Usuario</label>");
-                        out.print("<input type='text' name='prod' value='"+v.getIdUsuario()+"' readonly>");
+                        out.print("<input type='text' name='user' value='"+v.getIdUsuario()+"' readonly>");
+                        out.print("</div>");
+
+                        out.print("<div class='campo'>");
+                        out.print("<label>ID Producto</label>");
+                        out.print("<input type='text' name='prod'>");
                         out.print("</div>");
 
                         out.print("<div class='campo'>");
@@ -77,6 +91,9 @@ out.print("<form action='RegistrarDetalleVenta.jsp' method='post' "
                                 + "value='Registrar detalle'>");
 
                         out.print("</form>");
+                } else{
+                    out.print("<script>alert('Error al registrar venta');</script>");
+                }
             }
             
             if(request.getParameter("eliminar") != null) {

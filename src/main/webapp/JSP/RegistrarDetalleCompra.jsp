@@ -27,7 +27,7 @@
             if(request.getParameter("crear_detalle") != null) {
                 DetalleCompra dt = new DetalleCompra();
                try {
-                         dt.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
+                dt.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
                 dt.setPrecioUnitario(Double.parseDouble(request.getParameter("prec")));
                 dt.setSubtotal(Double.parseDouble(request.getParameter("total")));
                 dt.setIdCompra(Integer.parseInt(request.getParameter("id")));

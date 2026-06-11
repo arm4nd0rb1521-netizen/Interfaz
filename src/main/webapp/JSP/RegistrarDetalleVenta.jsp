@@ -25,15 +25,26 @@
             
             if(request.getParameter("crear_detalle") != null) {
                 DetalleVenta dt = new DetalleVenta();
+                try {
                 dt.setIdVenta(Integer.parseInt(request.getParameter("id")));
                 dt.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
                 dt.setSubtotal(Double.parseDouble(request.getParameter("total")));
                 dt.setPrecioUnitario(Double.parseDouble(request.getParameter("prec")));
                 dt.setIdProducto(Integer.parseInt(request.getParameter("prod")));
+                } catch(NumberFormatException e) {
+                    out.print(
+                            "<script>" +
+                            "alert('Error en el tipo de dato');" +
+                            "history.back();" +
+                            "</script>"
+                        );
+
+                        return;
+                }
                 
                 if(dtdao.insertar(dt)){
                 } else{
-                    out.print("<script>alert('Error al registrar');</script>");
+                    out.print("<script>alert('Error al registrar el detalle de venta');</script>");
                 }
             }
             
