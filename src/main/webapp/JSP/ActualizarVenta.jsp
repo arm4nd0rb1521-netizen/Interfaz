@@ -21,53 +21,62 @@
 
     <body>
         <%
-            VentaDAO rdao = new VentaDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Venta v =  rdao.buscarUno(id);
-                if(v != null) {
-                
-                    out.print("<h2>Venta</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Fecha</th>");
-                    out.print("<th>Id usuario</th>");
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+v.getFecha()+"</td>");
-                    out.print("<td>"+v.getIdUsuario()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='CRUDVentas.jsp' method='post'>");
+            try {
+                VentaDAO rdao = new VentaDAO();
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
-                        out.print("</div>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Fecha</label><br>");
-                        out.print("<input type='text' name='nombrecin' value='"+v.getFecha()+"'><br><br>");
-                        out.print("<label>ID del usuario</label><br>");
-                        out.print("<input type='text' name='usuario' value='"+v.getIdUsuario()+"'><br><br>");
-                        out.print("</div>");
+                    Venta v =  rdao.buscarUno(id);
+                    if(v != null) {
 
-                        out.print("<input type='submit' value='Actualizar' name='valida'>");
+                        out.print("<h2>Venta</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                        out.print("</form>");
-                
+                        out.print("<th>ID</th>");
+                        out.print("<th>Fecha</th>");
+                        out.print("<th>Id usuario</th>");
+                        out.print("</tr>");
+
+                        out.print("<tr>");
+
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+v.getFecha()+"</td>");
+                        out.print("<td>"+v.getIdUsuario()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                        out.print("<form class='formulario' action='CRUDVentas.jsp' method='post'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Fecha</label><br>");
+                            out.print("<input type='date' name='nombrecin' value='"+v.getFecha()+"'><br><br>");
+                            out.print("<label>ID del usuario</label><br>");
+                            out.print("<input type='text' name='usuario' value='"+v.getIdUsuario()+"'><br><br>");
+                            out.print("</div>");
+
+                            out.print("<input type='submit' value='Actualizar' name='valida'>");
+
+                            out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

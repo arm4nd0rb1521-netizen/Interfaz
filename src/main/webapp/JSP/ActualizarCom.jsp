@@ -20,70 +20,79 @@
     <body>
 <crear-header></crear-header>        
         <%
-             CompraDAO dtdao = new CompraDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Compra dt =  dtdao.buscarUno(id);
-                if(dt != null) {
-                
-                    out.print("<h2>Detalle de compra</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Fecha</th>");
-                    out.print("<th>Total</th>");
-                    out.print("<th>ID proveedor</th>");
-                    out.print("<th>ID usuario</th>");
-                    out.print("<th>Nombre del usuario</th>");
-                    out.print("<th>Nombre del preveedor</th>");
+            try {
+                 CompraDAO dtdao = new CompraDAO();
 
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+dt.getFecha()+"</td>");
-                    out.print("<td>"+dt.getTotal()+"</td>");
-                    out.print("<td>"+dt.getIdProveedor()+"</td>");
-                    out.print("<td>"+dt.getIdUsuario()+"</td>");
-                    out.print("<td>"+dt.getNombreUsuario()+"</td>");
-                    out.print("<td>"+dt.getNombreProv()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                   out.print("<form class='formulario' action='CRUDCompras.jsp' method='post'>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                                out.print("<div class='campo'>");
-                                out.print("<label>ID Compra</label>");
-                                out.print("<input type='text' name='idecin' value='"+dt.getIdCompra()+"' readonly>");
-                                out.print("</div>");
+                    Compra dt =  dtdao.buscarUno(id);
+                    if(dt != null) {
 
-                                out.print("<div class='campo'>");
-                                out.print("<label>Fecha</label>");
-                                out.print("<input type='text' name='fecha' value='"+dt.getFecha()+"'>");
-                                out.print("</div>");
+                        out.print("<h2>Detalle de compra</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                                out.print("<div class='campo'>");
-                                out.print("<label>Total</label>");
-                                out.print("<input type='text' name='total' value='"+dt.getTotal()+"'>");
-                                out.print("</div>");
+                        out.print("<th>ID</th>");
+                        out.print("<th>Fecha</th>");
+                        out.print("<th>Total</th>");
+                        out.print("<th>ID proveedor</th>");
+                        out.print("<th>ID usuario</th>");
+                        out.print("<th>Nombre del usuario</th>");
+                        out.print("<th>Nombre del preveedor</th>");
 
-                                out.print("<div class='campo'>");
-                                out.print("<label>ID Usuario</label>");
-                                out.print("<input type='text' name='usuario' value='"+dt.getIdUsuario()+"'>");
-                                out.print("</div>");
+                        out.print("</tr>");
 
-                                out.print("<input type='submit' name='valida' value='Actualizar'>");
+                        out.print("<tr>");
 
-                                out.print("</form>");
-                
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+dt.getFecha()+"</td>");
+                        out.print("<td>"+dt.getTotal()+"</td>");
+                        out.print("<td>"+dt.getIdProveedor()+"</td>");
+                        out.print("<td>"+dt.getIdUsuario()+"</td>");
+                        out.print("<td>"+dt.getNombreUsuario()+"</td>");
+                        out.print("<td>"+dt.getNombreProv()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                       out.print("<form class='formulario' action='CRUDCompras.jsp' method='post'>");
+
+                                    out.print("<div class='campo'>");
+                                    out.print("<label>ID Compra</label>");
+                                    out.print("<input type='text' name='idecin' value='"+dt.getIdCompra()+"' readonly>");
+                                    out.print("</div>");
+
+                                    out.print("<div class='campo'>");
+                                    out.print("<label>Fecha</label>");
+                                    out.print("<input type='date' name='fecha' value='"+dt.getFecha()+"'>");
+                                    out.print("</div>");
+
+                                    out.print("<div class='campo'>");
+                                    out.print("<label>Total</label>");
+                                    out.print("<input type='text' name='total' value='"+dt.getTotal()+"'>");
+                                    out.print("</div>");
+
+                                    out.print("<div class='campo'>");
+                                    out.print("<label>ID Usuario</label>");
+                                    out.print("<input type='text' name='usuario' value='"+dt.getIdUsuario()+"'>");
+                                    out.print("</div>");
+
+                                    out.print("<input type='submit' name='valida' value='Actualizar'>");
+
+                                    out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

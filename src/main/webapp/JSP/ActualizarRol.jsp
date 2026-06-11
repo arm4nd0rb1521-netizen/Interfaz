@@ -19,49 +19,58 @@
 <crear-header></crear-header>        
     <body>
         <%
-            RolDAO rdao = new RolDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Rol r =  rdao.buscarUno(id);
-                if(r != null) {
-                
-                    out.print("<h2>Actualizar Rol</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+r.getInombre()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='CRUDRoles.jsp' method='post'>");
+            try {
+                RolDAO rdao = new RolDAO();
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
-                        out.print("</div>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+r.getInombre()+"'>");
-                        out.print("</div>");
+                    Rol r =  rdao.buscarUno(id);
+                    if(r != null) {
 
-                        out.print("<input type='submit' value='Actualizar' name='valida'>");
+                        out.print("<h2>Actualizar Rol</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                        out.print("</form>");
-                
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("</tr>");
+
+                        out.print("<tr>");
+
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+r.getInombre()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                        out.print("<form class='formulario' action='CRUDRoles.jsp' method='post'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Nombre</label>");
+                            out.print("<input type='text' name='nombrecin' value='"+r.getInombre()+"'>");
+                            out.print("</div>");
+
+                            out.print("<input type='submit' value='Actualizar' name='valida'>");
+
+                            out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

@@ -26,24 +26,25 @@
         <h1>Compras</h1>
                
         <%
-          CompraDAO cdao = new CompraDAO();
-            
-            List <Compra> compras = new ArrayList<>();
-            
-            if(request.getParameter("registrar") != null) {
-                Compra c = new Compra();
-                try {
-                c.setFecha(request.getParameter("compra"));
-                c.setTotal(Double.parseDouble(request.getParameter("total")));
-                c.setIdProveedor(Integer.parseInt(request.getParameter("id_prov")));
-                c.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
-                } catch(NumberFormatException e) {
-                    %>
-                    <script>alert('Tipo de dato invalido');</script>
-                    <script>history.back();</script>
-                    <%
-                    return;
-                }
+            try {
+              CompraDAO cdao = new CompraDAO();
+
+                List <Compra> compras = new ArrayList<>();
+
+                if(request.getParameter("registrar") != null) {
+                    Compra c = new Compra();
+                    try {
+                    c.setFecha(request.getParameter("compra"));
+                    c.setTotal(Double.parseDouble(request.getParameter("total")));
+                    c.setIdProveedor(Integer.parseInt(request.getParameter("id_prov")));
+                    c.setIdUsuario(Integer.parseInt(request.getParameter("id_usuario")));
+                    } catch(NumberFormatException e) {
+                        %>
+                        <script>alert('Tipo de dato invalido');</script>
+                        <script>history.back();</script>
+                        <%
+                        return;
+                    }
                 
                 if(cdao.insertar(c)){
                     out.print("<form action='RegistrarDetalleCompra.jsp' "
@@ -184,6 +185,14 @@
 
                         }
                     }
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
+            }
         %>
                
    

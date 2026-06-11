@@ -17,105 +17,114 @@
 
     <body>
         <%
-            UsuarioDAO udao = new UsuarioDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Usuario u =  udao.buscarUno(id);
-                if(u != null) {
-                
-                    out.print("<h2>Usuario</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("<th>Apellido</th>");
-                    out.print("<th>Contraseña</th>");
-                    out.print("<th>Rol</th>");
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+u.getNombre()+"</td>");
-                    out.print("<td>"+u.getApellido()+"</td>");
-                    out.print("<td>"+u.getContraseña()+"</td>");
-                    out.print("<td>"+u.getNombreRol()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='CRUDUsuarios2.jsp' method='post' name='actualiza'>");
+            try {
+                UsuarioDAO udao = new UsuarioDAO();
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
+
+                    Usuario u =  udao.buscarUno(id);
+                    if(u != null) {
+
+                        out.print("<h2>Usuario</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
+
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("<th>Apellido</th>");
+                        out.print("<th>Contraseña</th>");
+                        out.print("<th>Rol</th>");
+                        out.print("</tr>");
+
+                        out.print("<tr>");
+
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+u.getNombre()+"</td>");
+                        out.print("<td>"+u.getApellido()+"</td>");
+                        out.print("<td>"+u.getContraseña()+"</td>");
+                        out.print("<td>"+u.getNombreRol()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                        out.print("<form class='formulario' action='CRUDUsuarios2.jsp' method='post' name='actualiza'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Nombre</label>");
+                            out.print("<input type='text' name='nombrecin' value='"+u.getNombre()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Apellido</label>");
+                            out.print("<input type='text' name='apellidocin' value='"+u.getApellido()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Contraseña</label>");
+                            out.print("<input type='text' name='contrasenia' value='"+u.getContraseña()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Rol</label>");
+                        if(u.getNombreRol().equals("Vendedor")) {
+                            out.print("<select name='rolecin'>");
+                            out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
+                            out.print("<option selected value='Vendedor'>Vendedor</option>");
+                            out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
+                            out.print("<option value='Gerente'>Gerente</option>");
+                            out.print("<option value='Administrador'>Administrador</option>");
+                        }
+
+                        if(u.getNombreRol().equals("Encargado de almacen")) {
+                            out.print("<select name='rolecin'>");
+                            out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
+                            out.print("<option value='Vendedor'>Vendedor</option>");
+                            out.print("<option selected value='Encargado_almacen'>Encargado de almacen</option>");
+                            out.print("<option value='Gerente'>Gerente</option>");
+                            out.print("<option value='Administrador'>Administrador</option>");
+                        }
+
+                        if(u.getNombreRol().equals("Gerente")) {
+                            out.print("<select name='rolecin'>");
+                            out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
+                            out.print("<option value='Vendedor'>Vendedor</option>");
+                            out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
+                            out.print("<option selected value='Gerente'>Gerente</option>");
+                            out.print("<option value='Administrador'>Administrador</option>");
+                        }
+
+                        if(u.getNombreRol().equals("Administrador")) {
+                            out.print("<select name='rolecin'>");
+                            out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
+                            out.print("<option value='Vendedor'>Vendedor</option>");
+                            out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
+                            out.print("<option value='Gerente'>Gerente</option>");
+                            out.print("<option selected value='Administrador'>Administrador</option>");
+                        }
+                        out.print("</select>");
                         out.print("</div>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+u.getNombre()+"'>");
-                        out.print("</div>");
+                        out.print("<input type='submit' value='Actualizar' name='valida'>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Apellido</label>");
-                        out.print("<input type='text' name='apellidocin' value='"+u.getApellido()+"'>");
-                        out.print("</div>");
+                        out.print("</form>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Contraseña</label>");
-                        out.print("<input type='text' name='contrasenia' value='"+u.getContraseña()+"'>");
-                        out.print("</div>");
-
-                        out.print("<div class='campo'>");
-                        out.print("<label>Rol</label>");
-                    if(u.getNombreRol().equals("Vendedor")) {
-                        out.print("<select name='rolecin'>");
-                        out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
-                        out.print("<option selected value='Vendedor'>Vendedor</option>");
-                        out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
-                        out.print("<option value='Gerente'>Gerente</option>");
-                        out.print("<option value='Administrador'>Administrador</option>");
                     }
-                    
-                    if(u.getNombreRol().equals("Encargado de almacen")) {
-                        out.print("<select name='rolecin'>");
-                        out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
-                        out.print("<option value='Vendedor'>Vendedor</option>");
-                        out.print("<option selected value='Encargado_almacen'>Encargado de almacen</option>");
-                        out.print("<option value='Gerente'>Gerente</option>");
-                        out.print("<option value='Administrador'>Administrador</option>");
-                    }
-                    
-                    if(u.getNombreRol().equals("Gerente")) {
-                        out.print("<select name='rolecin'>");
-                        out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
-                        out.print("<option value='Vendedor'>Vendedor</option>");
-                        out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
-                        out.print("<option selected value='Gerente'>Gerente</option>");
-                        out.print("<option value='Administrador'>Administrador</option>");
-                    }
-                    
-                    if(u.getNombreRol().equals("Administrador")) {
-                        out.print("<select name='rolecin'>");
-                        out.print("<option value='Seleccione alguna'>Seleccione alguna</option>");
-                        out.print("<option value='Vendedor'>Vendedor</option>");
-                        out.print("<option value='Encargado_almacen'>Encargado de almacen</option>");
-                        out.print("<option value='Gerente'>Gerente</option>");
-                        out.print("<option selected value='Administrador'>Administrador</option>");
-                    }
-                    out.print("</select>");
-                    out.print("</div>");
 
-                    out.print("<input type='submit' value='Actualizar' name='valida'>");
-
-                    out.print("</form>");
-                
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
        <div class="volver">

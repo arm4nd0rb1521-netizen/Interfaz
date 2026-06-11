@@ -20,78 +20,87 @@
     <body>
 <crear-header></crear-header>        
         <%
-            DetalleCompraDAO dtdao = new DetalleCompraDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                DetalleCompra dt =  dtdao.buscarUno(id);
-                if(dt != null) {
-                
-                    out.print("<h2>Detalle de compra</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Cantidad</th>");
-                    out.print("<th>Precio unitario</th>");
-                    out.print("<th>Subtotal</th>");
-                    out.print("<th>ID de la compra</th>");
-                    out.print("<th>ID del producto</th>");
+            try {
+                DetalleCompraDAO dtdao = new DetalleCompraDAO();
 
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+dt.getCantidad()+"</td>");
-                    out.print("<td>"+dt.getPrecioUnitario()+"</td>");
-                    out.print("<td>"+dt.getSubtotal()+"</td>");
-                    out.print("<td>"+dt.getIdCompra()+"</td>");
-                    out.print("<td>"+dt.getIdProducto()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='RegistrarDetalleCompra.jsp' method='post'>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
-                        out.print("</div>");
+                    DetalleCompra dt =  dtdao.buscarUno(id);
+                    if(dt != null) {
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Cantidad</label>");
-                        out.print("<input type='text' name='cantidad' value='"+dt.getCantidad()+"'>");
-                        out.print("</div>");
+                        out.print("<h2>Detalle de compra</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Precio unitario</label>");
-                        out.print("<input type='text' name='precioU' value='"+dt.getPrecioUnitario()+"'>");
-                        out.print("</div>");
+                        out.print("<th>ID</th>");
+                        out.print("<th>Cantidad</th>");
+                        out.print("<th>Precio unitario</th>");
+                        out.print("<th>Subtotal</th>");
+                        out.print("<th>ID de la compra</th>");
+                        out.print("<th>ID del producto</th>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Subtotal</label>");
-                        out.print("<input type='text' name='subtotal' value='"+dt.getSubtotal()+"'>");
-                        out.print("</div>");
+                        out.print("</tr>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID compra</label>");
-                        out.print("<input type='text' name='idCompra' value='"+dt.getIdCompra()+"'>");
-                        out.print("</div>");
+                        out.print("<tr>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID producto</label>");
-                        out.print("<input type='text' name='idProd' value='"+dt.getIdProducto()+"'>");
-                        out.print("</div>");
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+dt.getCantidad()+"</td>");
+                        out.print("<td>"+dt.getPrecioUnitario()+"</td>");
+                        out.print("<td>"+dt.getSubtotal()+"</td>");
+                        out.print("<td>"+dt.getIdCompra()+"</td>");
+                        out.print("<td>"+dt.getIdProducto()+"</td>");
 
-                        out.print("<input type='submit' value='Actualizar' name='valida'>");
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
 
-                        out.print("</form>");
-                
+                        out.print("<form class='formulario' action='RegistrarDetalleCompra.jsp' method='post'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Cantidad</label>");
+                            out.print("<input type='text' name='cantidad' value='"+dt.getCantidad()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Precio unitario</label>");
+                            out.print("<input type='text' name='precioU' value='"+dt.getPrecioUnitario()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Subtotal</label>");
+                            out.print("<input type='text' name='subtotal' value='"+dt.getSubtotal()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID compra</label>");
+                            out.print("<input type='text' name='idCompra' value='"+dt.getIdCompra()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID producto</label>");
+                            out.print("<input type='text' name='idProd' value='"+dt.getIdProducto()+"'>");
+                            out.print("</div>");
+
+                            out.print("<input type='submit' value='Actualizar' name='valida'>");
+
+                            out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

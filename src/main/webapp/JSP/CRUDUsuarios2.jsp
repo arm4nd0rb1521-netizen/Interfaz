@@ -25,6 +25,7 @@
             
             if(request.getParameter("registrar") != null) {
                 Usuario u = new Usuario();
+                try {
                 u.setNombre(request.getParameter("user"));
                 u.setApellido(request.getParameter("ape"));
                 u.setContraseña(request.getParameter("password_crear"));
@@ -42,6 +43,7 @@
                     out.print("<script>alert('Ingrese un rol');</script>");
                     return;
                 }
+                
 
                 u.setIdRol(rol);
                 
@@ -49,47 +51,74 @@
                 } else{
                     out.print("<script>alert('Error al registrar');</script>");
                 }
+                } catch(Exception e) {
+                    %>
+                    <script>
+                        alert('Error');
+                        history.back();
+                    </script>
+                    <%
+                }
             }
             
             if(request.getParameter("eliminar") != null) {
-                int id = Integer.parseInt(request.getParameter("id_eliminar"));
-                
-                if(udao.eliminar(id)) {
-                } else{
-                    out.print("<script>alert('Error al eliminar');</script>");
+                try {
+                    int id = Integer.parseInt(request.getParameter("id_eliminar"));
+
+                    if(udao.eliminar(id)) {
+                    } else{
+                        out.print("<script>alert('Error al eliminar');</script>");
+                    }
+                } catch(Exception e) {
+                    %>
+                    <script>
+                        alert('Error con el tipo de dato del ID');
+                        history.back();
+                    </script>
+                    <%
                 }
             }
             
             if(request.getParameter("consultar_user") != null) {
-                int id = Integer.parseInt(request.getParameter("id_consultar"));
-                Usuario u = udao.buscarUno(id);
-                
-                if(u != null) {
-                    
-                    out.print("<table>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("<th>Apellido</th>");
-                    out.print("<th>Contraseña</th>");
-                    out.print("<th>Rol</th>");
-                    
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+u.getIdUsuario()+"</td>");
-                    out.print("<td>"+u.getNombre()+"</td>");
-                    out.print("<td>"+u.getApellido()+"</td>");
-                    out.print("<td>"+u.getContraseña()+"</td>");
-                    out.print("<td>"+u.getNombreRol()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                } else {
-                    out.print("<script>alert('Usuario no encontrado')</script>");
+                try{
+                    int id = Integer.parseInt(request.getParameter("id_consultar"));
+
+                    Usuario u = udao.buscarUno(id);
+
+                    if(u != null) {
+
+                        out.print("<table>");
+
+                        out.print("<tr>");
+
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("<th>Apellido</th>");
+                        out.print("<th>Contraseña</th>");
+                        out.print("<th>Rol</th>");
+
+                        out.print("</tr>");
+
+                        out.print("<tr>");
+
+                        out.print("<td>"+u.getIdUsuario()+"</td>");
+                        out.print("<td>"+u.getNombre()+"</td>");
+                        out.print("<td>"+u.getApellido()+"</td>");
+                        out.print("<td>"+u.getContraseña()+"</td>");
+                        out.print("<td>"+u.getNombreRol()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                    } else {
+                        out.print("<script>alert('Usuario no encontrado')</script>");
+                    }
+                } catch(Exception e) {
+                    %>
+                    <script>
+                        alert('Error con el tipo de dato del ID');
+                        history.back();
+                    </script>
+                    <%
                 }
             }
             
@@ -129,51 +158,60 @@
             }
 
             if(request.getParameter("valida") != null) {
+                try {
+                    Usuario u = new Usuario();
 
-                Usuario u = new Usuario();
-
-                u.setIdUsuario(
-                    Integer.parseInt(
-                        request.getParameter("idecin")
-                    )
-                );
-
-                u.setNombre(
-                    request.getParameter("nombrecin")
-                );
-
-                u.setApellido(
-                    request.getParameter("apellidocin")
-                );
-
-                u.setContraseña(
-                    request.getParameter("contrasenia")
-                );
-
-                String rolecin =
-                    request.getParameter("rolecin");
-
-                int rol = 0;
-
-                if(rolecin.equals("Vendedor"))
-                    rol = 1;
-                else if(rolecin.equals("Encargado_almacen"))
-                    rol = 2;
-                else if(rolecin.equals("Gerente"))
-                    rol = 3;
-                else if(rolecin.equals("Administrador"))
-                    rol = 4;
-
-                u.setIdRol(rol);
-
-                if(udao.actualizar(u)) {
-
-
-                } else {
-
-                    out.print(
-                        "<script>alert('Error al actualizar');</script>"
+                    u.setIdUsuario(
+                        Integer.parseInt(
+                            request.getParameter("idecin")
+                        )
                     );
+
+
+                    u.setNombre(
+                        request.getParameter("nombrecin")
+                    );
+
+                    u.setApellido(
+                        request.getParameter("apellidocin")
+                    );
+
+                    u.setContraseña(
+                        request.getParameter("contrasenia")
+                    );
+
+                    String rolecin =
+                        request.getParameter("rolecin");
+
+                    int rol = 0;
+
+                    if(rolecin.equals("Vendedor"))
+                        rol = 1;
+                    else if(rolecin.equals("Encargado_almacen"))
+                        rol = 2;
+                    else if(rolecin.equals("Gerente"))
+                        rol = 3;
+                    else if(rolecin.equals("Administrador"))
+                        rol = 4;
+
+                    u.setIdRol(rol);
+
+                    if(udao.actualizar(u)) {
+
+
+                    } else {
+
+                        out.print(
+                            "<script>alert('Error al actualizar');</script>"
+                        );
+                    }
+                } catch(Exception e) {
+                    %>
+                    <script>
+                        alert('Error con el tipo de dato');
+                        history.back();
+                    </script>
+                    <%
                 }
             }
         %>

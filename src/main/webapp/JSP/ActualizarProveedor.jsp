@@ -20,64 +20,73 @@
     <body>
 <crear-header></crear-header>        
         <%
-            ProveedorDAO pdao = new ProveedorDAO();
-            
-            if(request.getParameter("actualizar_prov") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Proveedor p =  pdao.buscarUno(id);
-                if(p != null) {
-                
-                    out.print("<h2>Usuario</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("<th>Apellido</th>");
-                    out.print("<th>Contraseña</th>");
-                    out.print("<th>Rol</th>");
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+p.getNombre()+"</td>");
-                    out.print("<td>"+p.getTelefono()+"</td>");
-                    out.print("<td>"+p.getGrupo()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='CRUDProveedores.jsp' method='post'>");
+            try {
+                ProveedorDAO pdao = new ProveedorDAO();
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
-                        out.print("</div>");
+                if(request.getParameter("actualizar_prov") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+p.getNombre()+"'>");
-                        out.print("</div>");
+                    Proveedor p =  pdao.buscarUno(id);
+                    if(p != null) {
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Telefono</label>");
-                        out.print("<input type='text' name='telefonito' value='"+p.getTelefono()+"'>");
-                        out.print("</div>");
+                        out.print("<h2>Usuario</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Grupo</label>");
-                        out.print("<input type='text' name='grupito' value='"+p.getGrupo()+"'>");
-                        out.print("</div>");
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("<th>Apellido</th>");
+                        out.print("<th>Contraseña</th>");
+                        out.print("<th>Rol</th>");
+                        out.print("</tr>");
 
-                        out.print("<input type='submit' value='Actualizar' name='valida'>");
+                        out.print("<tr>");
 
-                        out.print("</form>");
-                
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+p.getNombre()+"</td>");
+                        out.print("<td>"+p.getTelefono()+"</td>");
+                        out.print("<td>"+p.getGrupo()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                        out.print("<form class='formulario' action='CRUDProveedores.jsp' method='post'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Nombre</label>");
+                            out.print("<input type='text' name='nombrecin' value='"+p.getNombre()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Telefono</label>");
+                            out.print("<input type='text' name='telefonito' value='"+p.getTelefono()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Grupo</label>");
+                            out.print("<input type='text' name='grupito' value='"+p.getGrupo()+"'>");
+                            out.print("</div>");
+
+                            out.print("<input type='submit' value='Actualizar' name='valida'>");
+
+                            out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

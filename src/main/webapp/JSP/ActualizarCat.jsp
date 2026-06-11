@@ -20,57 +20,66 @@
     <body>
 <crear-header></crear-header>        
         <%
-            CategoriaDAO cdao = new CategoriaDAO();
-            
-            if(request.getParameter("actualizar") != null)  {
-                int id = Integer.parseInt(request.getParameter("id_actualizar"));
-                
-                Categoria c =  cdao.buscarUno(id);
-                if(c != null) {
-                
-                    out.print("<h2>Categoria</h2>");
-                    out.print("<table>");
-                    out.print("<tr>");
-                    
-                    out.print("<th>ID</th>");
-                    out.print("<th>Nombre</th>");
-                    out.print("<th>Descripcion</th>");
+            try {
+                CategoriaDAO cdao = new CategoriaDAO();
 
-                    out.print("</tr>");
-                    
-                    out.print("<tr>");
-                    
-                    out.print("<td>"+id+"</td>");
-                    out.print("<td>"+c.getNombre()+"</td>");
-                    out.print("<td>"+c.getDescripcion()+"</td>");
-                    
-                    out.print("</tr>");
-                    out.print("</table>");
-                    out.print("<br><br><br><br>");
-                    
-                    out.print("<form class='formulario' action='CRUDCategoria.jsp' method='post'>");
+                if(request.getParameter("actualizar") != null)  {
+                    int id = Integer.parseInt(request.getParameter("id_actualizar"));
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>ID</label>");
-                        out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
-                        out.print("</div>");
+                    Categoria c =  cdao.buscarUno(id);
+                    if(c != null) {
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='nombrecin' value='"+c.getNombre()+"'>");
-                        out.print("</div>");
+                        out.print("<h2>Categoria</h2>");
+                        out.print("<table>");
+                        out.print("<tr>");
 
-                        out.print("<div class='campo'>");
-                        out.print("<label>Nombre</label>");
-                        out.print("<input type='text' name='desc' value='"+c.getDescripcion()+"'>");
-                        out.print("</div>");
+                        out.print("<th>ID</th>");
+                        out.print("<th>Nombre</th>");
+                        out.print("<th>Descripcion</th>");
 
-                        out.print("<input type='submit' value='Actualizar' name='valida'>");
+                        out.print("</tr>");
 
-                        out.print("</form>");
-                
+                        out.print("<tr>");
+
+                        out.print("<td>"+id+"</td>");
+                        out.print("<td>"+c.getNombre()+"</td>");
+                        out.print("<td>"+c.getDescripcion()+"</td>");
+
+                        out.print("</tr>");
+                        out.print("</table>");
+                        out.print("<br><br><br><br>");
+
+                        out.print("<form class='formulario' action='CRUDCategoria.jsp' method='post'>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>ID</label>");
+                            out.print("<input type='text' name='idecin' value='"+id+"' readonly>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Nombre</label>");
+                            out.print("<input type='text' name='nombrecin' value='"+c.getNombre()+"'>");
+                            out.print("</div>");
+
+                            out.print("<div class='campo'>");
+                            out.print("<label>Nombre</label>");
+                            out.print("<input type='text' name='desc' value='"+c.getDescripcion()+"'>");
+                            out.print("</div>");
+
+                            out.print("<input type='submit' value='Actualizar' name='valida'>");
+
+                            out.print("</form>");
+
+                    }
+
                 }
-                
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
  <div class="volver">

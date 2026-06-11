@@ -24,6 +24,7 @@
 <h1>Gestión de Proveedores</h1>
 <hr>
         <%
+            try {
             ProveedorDAO pdao = new ProveedorDAO();
             
             List <Proveedor> proveedores = new ArrayList<>();
@@ -167,6 +168,14 @@
                         "<script>alert('Error al actualizar');</script>"
                     );
                 }
+            }
+            } catch(Exception e) {
+                %>
+                <script>
+                    alert('Ocurrio un error inesperado');
+                    history.back();
+                </script>
+                <%
             }
         %>
         
