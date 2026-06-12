@@ -54,7 +54,7 @@
                         out.print("</table>");
                         out.print("<br><br><br><br>");
 
-                        out.print("<form action='CRUDProductos.jsp' method='post' name='actualiza'>");
+                        out.print("<form action='CRUDProductos.jsp' method='post' name='actualiza' class='formulario'>");
 
                         out.print("<div class='campo'>");
                         out.print("<label>ID</label>");
