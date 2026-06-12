@@ -154,9 +154,9 @@
                 <%
             }
         %>
-        
+               <div class="volver">
         <a href="../HTMLs/Categorias.html">Regresar</a>
-        
+               </div>
     </body>
                     <crear-footer></crear-footer>   
 

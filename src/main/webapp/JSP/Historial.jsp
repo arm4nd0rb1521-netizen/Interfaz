@@ -76,7 +76,9 @@
                 
             }
             %>
-    
+           <div class="volver">
+               <a href="../HTMLs/Historial del sistema.html">Regresar</a>
+</div>
     </body>
     <crear-footer></crear-footer>
 </html>

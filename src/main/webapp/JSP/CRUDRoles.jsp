@@ -146,9 +146,9 @@
                 <%
             }
         %>
-        
+               <div class="volver">
         <a href="../HTMLs/Productos.html">Regresar</a>
-        
+               </div>
     </body>
                 <crear-footer></crear-footer>   
 

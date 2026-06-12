@@ -3,7 +3,9 @@ class CrearHeader extends HTMLElement {
         this.innerHTML = `
             <header>
                 <div class="principal">
-                        <img src='../logo.png' class='logo' alt='logo' width='100px' height='100px'>
+        <a href="../HTMLs/IHome.html">
+            <img src="../logo.png" class="logo" alt="logo" width="100px" height="100px">
+        </a>
                 </div>
                 <div class='nave'>
                     <nav class="navegacion">
